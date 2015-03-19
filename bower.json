@@ -1,0 +1,21 @@
+{
+  "name": "habitsApp",
+  "version": "0.0.1",
+  "homepage": "https://github.com/mollytaryn/habitsApp",
+  "authors": [
+    "mollytaryn <mollytaryn@gmail.com>"
+  ],
+  "description": "A simple app to help track and change good and bad habits.",
+  "main": "index.html",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "firebase": "~2.2.3"
+  }
+}

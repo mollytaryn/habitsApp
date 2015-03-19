@@ -1,0 +1,32 @@
+body {
+  margin: 0;
+  padding-top: 0;
+}
+
+.headerBar {
+  background-color: #556270;
+  height: 50px;
+}
+
+.subBar {
+  background-color: #4C5764;
+  height: 5px;
+}
+
+h1 {
+  padding-top: 5px;
+  font-family: lato;
+  font-weight: 800;
+  text-align: center;
+  color: #C7F464;
+  margin: 0;
+}
+
+.habi {
+  color: white;
+  font-weight: 300;
+}
+
+.tracker {
+
+}

@@ -1,0 +1,19 @@
+{
+  "name": "habitsApp",
+  "version": "0.0.1",
+  "description": "A simple app to help track and change good and bad habits.",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mollytaryn/habitsApp.git"
+  },
+  "author": "Molly Black (mollytaryn@gmail.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mollytaryn/habitsApp/issues"
+  },
+  "homepage": "https://github.com/mollytaryn/habitsApp"
+}
