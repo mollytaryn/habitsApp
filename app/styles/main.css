@@ -1,11 +1,13 @@
 body {
   margin: 0;
   padding-top: 0;
+  background-color: #4C5764;
+/*  background-color: #A4B1BF;*/
 }
 
 .headerBar {
   background-color: #556270;
-  height: 50px;
+  height: 55px;
 }
 
 .subBar {
@@ -27,6 +29,59 @@ h1 {
   font-weight: 300;
 }
 
-.tracker {
+#loginForm {
+  background-color: white;
+  border-radius: 5px;
+  margin: auto;
+  margin-top: 40px;
+  padding: 30px 0;
+  text-align: center;
+  max-width: 340px;
+}
 
+.welcome {
+  font-family: lato;
+  text-align: center;
+  color: #4C5764;
+}
+
+.loginMessage {
+  font-family: lato;
+  text-align: center;
+  color: #556270;
+}
+
+.textInput {
+  margin: 10px 5%;
+  width: 80%;
+  height: 24px;
+  border: none;
+  border-bottom: 1px solid #E5E5E5;
+  font-family: helvetica;
+  font-size: 12px;
+}
+
+.button {
+  margin: 5px;
+  width: 80%;
+  height: 32px;
+  font-family: helvetica;
+  font-size: 15px;
+  color: #4C5764;
+  text-align: center;
+  border-radius: 5px;
+  border: none;
+  background-color: #C7F464;
+}
+
+.button:hover {
+  background-color: #B9E35D;
+}
+
+.register {
+  background-color: #E5E5E5;
+}
+
+.register:hover {
+  background-color: #CCC;
 }
