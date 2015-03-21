@@ -5,6 +5,8 @@ body {
 /*  background-color: #A4B1BF;*/
 }
 
+/*********HEADER********/
+
 .headerBar {
   background-color: #556270;
   height: 55px;
@@ -29,7 +31,9 @@ h1 {
   font-weight: 300;
 }
 
-#loginForm {
+/*********LOGIN PAGE********/
+
+.loginForm {
   background-color: white;
   border-radius: 5px;
   margin: auto;
@@ -84,4 +88,66 @@ h1 {
 
 .register:hover {
   background-color: #CCC;
+}
+
+/*********SUBMIT HABIT********/
+
+.fullWidth {
+  width: 100%;
+  text-align: center;
+  background: #8E98A3;
+}
+
+.newHabitForm {
+  display: inline;
+  border-radius: 5px;
+  margin: auto;
+  padding: 20px 0;
+}
+
+.submitHabit {
+  margin: 5px 0;
+  max-width: 40px;
+  height: 32px;
+  font-family: helvetica;
+  font-size: 15px;
+  color: white;
+  text-align: center;
+  border-radius: 0 5px 5px 0;
+  border: none;
+  background-color: #4C5764;
+}
+
+.submitHabit:hover {
+  background-color: #39414A;
+}
+
+.habitInput {
+  margin: 5px -4px 5px 20px;
+  padding-left: 5px;
+  width: 200px;
+  height: 30px;
+  border: none;
+  border-radius: 5px 0px 0px 5px;
+  font-family: helvetica;
+  font-size: 13px;
+}
+
+.radio {
+  margin-left: 10px;
+  margin-right: 5px;
+}
+
+.radioText {
+  font-family: helvetica;
+  font-size: 15px;
+  color: #4C5764;
+}
+
+/*********HABITS********/
+
+h2 {
+  font-family: lato;
+  margin-left: 10px;
+  color: #B9E35D
 }

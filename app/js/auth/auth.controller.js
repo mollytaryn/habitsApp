@@ -14,7 +14,7 @@ function AuthController($rootScope, $scope, $location, authFactory, FBURL) {
       } else {
         console.log('Success', authData);
         $rootScope.user = authData;
-        $location.path('/tracker');
+        $location.path('/habit');
         $scope.$apply();
       }
     });
