@@ -1,0 +1,30 @@
+<div class="fullWidth">
+  <form name="habitracker.newPostForm" ng-submit="habit.addHabit()" class="newHabitForm">
+    <input type="radio" name="habit" value="more" class="radio" ng-model="habit.newPost.goal" checked><span class="radioText">more</span>
+    <input type="radio" name="habit" value="less" class="radio" ng-model="habit.newPost.goal" checked><span class="radioText">less</span>
+    <input type="text" placeholder="ex. watching tv" class="habitInput" ng-model="habit.newPost.description">
+    <input type="submit" class="button submitHabit" value="+" >
+  </form>
+</div>
+
+<div>
+  <h2>more</h2>
+  <table class="table">
+  <tbody>
+    <tr ng-repeat="(id, habit) in habit.data">
+      <td>
+        <button ng-click="habit.updateInstances(id, 1)">+</button>
+      </td>
+      <td>{{habit.instances}}</td>
+      <td>{{habit.description}}</td>
+      <td><button>Graph</button></td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<div>
+  <h2>less</h2>
+</div>
+
+<br><button ng-click="auth.logout()">log out</button>
