@@ -13,9 +13,9 @@ function authConfig($routeProvider) {
       // resolve: {
       //   data: function ($location, authFactory) {
       //     if (authFactory.isLoggedIn()) {
-      //       $location.path('/tracker')
+      //       $location.path('/habit')
       //     }
-        // }
+      //   }
       // }
     })
     .when('/logout', {
@@ -23,6 +23,7 @@ function authConfig($routeProvider) {
       controller: 'LogoutController'
     });
 }
+
 function privateRoutes($rootScope, $location, authFactory) {
   $rootScope.$on('routeChangeStart', function (event, nextRoute) {
     $rootScope.user = authFactory.getAuth();

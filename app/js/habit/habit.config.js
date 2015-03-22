@@ -7,6 +7,14 @@ function habitConfig($routeProvider) {
     .when('/habit', {
       templateUrl: 'habit.html',
       controller: 'HabitController',
+      controllerAs: 'habits'
+    })
+    .when('/welcome', {
+      templateUrl: 'welcome.html',
+      controller: 'HabitController',
       controllerAs: 'habit'
+    })
+    .otherwise({
+      redirectTo: '/habit'
     });
 }
