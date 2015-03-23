@@ -2,7 +2,7 @@ angular
   .module('habitracker')
   .factory('habitFactory', habitFactory);
 
-  function habitFactory($http, FBURL) {
+  function habitFactory($http, $route, FBURL) {
     var habits = {};
     var fb = new Firebase(FBURL);
 
@@ -28,6 +28,7 @@ angular
       $http
         .get(FBURL + '/users/' + fb.getAuth().uid + '/habits/' + id + '/instances/.json')
         .success(function(data) {
+          // $route.reload();
           cb(data);
         });
     };
@@ -38,42 +39,16 @@ angular
           .put(FBURL + '/users/' + fb.getAuth().uid + '/habits/' + id + '/instances/.json', data + direction)
           .success(function (res) {
             if (typeof cb === 'function') {
+              // $route.reload();
               cb(res);
-              console.log('update ')
             }
           });
         });
     };
+
+    // habits.newDay = function (id, cb) {
+    //   var time = moment();
+    //   console.log(time);
+    // }
     return habits;
   }
-
-//   return {
-//     findAll: function(cb) {
-//       var fb = new Firebase(FBURL);
-//       $http
-//         .get(FBURL + '/users/' + fb.getAuth().uid + '/habits.json')
-//         .success(function (data) {
-//           cb(data);
-//         });
-//     },
-//
-//     create: function(FBURL, postObj) {
-//       var fb = new Firebase(FBURL);
-//       $http
-//         .post(FBURL + '/users/' + fb.getAuth().uid + '/habits/.json', postObj)
-//         .success (function () {
-//           console.log('sent');
-//         });
-//     },
-//
-//     updateInstances: function(FBURL, postObj, cb) {
-//       var fb = new Firebase(FBURL);
-//       $http
-//         .put(FBURL + '/users/' + fb.getAuth().uid + '/habits/' + uuid + '.json', postObj)
-//         .success(function (data) {
-//           cb(data);
-//           console.log('updated instances!');
-//         });
-//     }
-//   };
-// }

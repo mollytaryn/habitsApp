@@ -7,6 +7,7 @@ function HabitController($http, $location, $route, habitFactory) {
 
   habitFactory.findAll(function (habits) {
     vm.data = habits;
+    console.log(habits);
   });
 
   vm.addHabit = function() {
@@ -20,10 +21,14 @@ function HabitController($http, $location, $route, habitFactory) {
 
   vm.updateInstances = function (id, direction) {
     habitFactory.updateInstances(id, direction);
-    $route.reload();
   };
 
   vm.testClick = function () {
     console.log('click');
   }
+
+  vm.time = function() {
+    var time = moment("HH:mm");
+    console.log(time);
+  };
 }

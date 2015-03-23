@@ -149,5 +149,64 @@ h1 {
 h2 {
   font-family: lato;
   margin-left: 10px;
-  color: #B9E35D
+  color: white;
+  text-align: left;
+}
+
+.habitsTable {
+  text-align: center;
+  width: 100%;
+}
+
+table {
+  width: 100%;
+  border-spacing: 0px;
+  background: #8E98A3;
+}
+
+td {
+  text-align: left;
+  font-family: lato;
+  font-size: 18px;
+  font-weight: 300;
+  height: 30px;
+  border-bottom: 5px solid #4C5764;
+  padding-left: 10px;
+}
+
+.updateTD {
+  width: 60px;
+}
+
+.instances {
+  text-align: center;
+  padding: 10px 20px;
+  width: 90px;
+  font-weight: 700;
+  color: white;
+}
+
+.updateInstances {
+  margin: 5px;
+  width: 40px;
+  height: 32px;
+  font-family: helvetica;
+  font-size: 15px;
+  color: white;
+  text-align: center;
+  border-radius: 5px;
+  border: none;
+  background-color: #4C5764;
+}
+
+.updateInstances:hover {
+  background-color: #39414A;
+}
+
+.habitDescription {
+  width: 200px;
+}
+
+.graph {
+  width: 60px;
 }
