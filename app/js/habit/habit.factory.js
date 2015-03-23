@@ -6,49 +6,84 @@ angular
     var habits = {};
     var fb = new Firebase(FBURL);
 
-    habits.findAll = function(cb) {
+    /////////MORE/////////
 
+    habits.findMore = function(cb) {
       $http
-        .get(FBURL + '/users/' + fb.getAuth().uid + '/habits.json')
+        .get(FBURL + '/users/' + fb.getAuth().uid + '/habits/more.json')
         .success(function(data) {
           cb(data);
         });
     };
 
-    habits.create = function(data, cb) {
+    habits.createMore = function(data, cb) {
       $http
-        .post(FBURL + '/users/' + fb.getAuth().uid + '/habits/.json', data)
+        .post(FBURL + '/users/' + fb.getAuth().uid + '/habits/more/.json', data)
         .success(function (res) {
           cb(res);
           console.log('sent');
         });
     };
 
-    habits.getInstances = function(id, cb) {
+    habits.getMoreInstances = function(id, cb) {
       $http
-        .get(FBURL + '/users/' + fb.getAuth().uid + '/habits/' + id + '/instances/.json')
+        .get(FBURL + '/users/' + fb.getAuth().uid + '/habits/more/' + id + '/instances/.json')
         .success(function(data) {
-          // $route.reload();
           cb(data);
         });
     };
 
-    habits.updateInstances = function (id, direction, cb) {
-      habits.getInstances(id, function(data) {
+    habits.updateMoreInstances = function (id, direction, cb) {
+      habits.getMoreInstances(id, function(data) {
         $http
-          .put(FBURL + '/users/' + fb.getAuth().uid + '/habits/' + id + '/instances/.json', data + direction)
+          .put(FBURL + '/users/' + fb.getAuth().uid + '/habits/more/' + id + '/instances/.json', data + direction)
           .success(function (res) {
             if (typeof cb === 'function') {
-              // $route.reload();
+              $route.reload();
               cb(res);
             }
           });
         });
     };
 
-    // habits.newDay = function (id, cb) {
-    //   var time = moment();
-    //   console.log(time);
-    // }
+    /////////LESS/////////
+
+    habits.findLess = function(cb) {
+      $http
+        .get(FBURL + '/users/' + fb.getAuth().uid + '/habits/less.json')
+        .success(function(data) {
+          cb(data);
+        });
+    };
+
+    habits.createLess = function(data, cb) {
+      $http
+        .post(FBURL + '/users/' + fb.getAuth().uid + '/habits/less/.json', data)
+        .success(function (res) {
+          cb(res);
+          console.log('sent');
+        });
+    };
+
+    habits.getLessInstances = function(id, cb) {
+      $http
+        .get(FBURL + '/users/' + fb.getAuth().uid + '/habits/less/' + id + '/instances/.json')
+        .success(function(data) {
+          cb(data);
+        });
+    };
+
+    habits.updateLessInstances = function (id, direction, cb) {
+      habits.getLessInstances(id, function(data) {
+        $http
+          .put(FBURL + '/users/' + fb.getAuth().uid + '/habits/less/' + id + '/instances/.json', data + direction)
+          .success(function (res) {
+            if (typeof cb === 'function') {
+              $route.reload();
+              cb(res);
+            }
+          });
+        });
+    };
     return habits;
   }

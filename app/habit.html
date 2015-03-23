@@ -1,19 +1,18 @@
-<div class="fullWidth">
-  <form name="habitracker.newPostForm" ng-submit="habits.addHabit()" class="newHabitForm">
-    <input type="radio" name="habit" value="more" class="radio" ng-model="habits.newPost.goal" checked><span class="radioText">more</span>
-    <input type="radio" name="habit" value="less" class="radio" ng-model="habits.newPost.goal" checked><span class="radioText">less</span>
-    <input type="text" placeholder="ex. watching tv" class="habitInput" ng-model="habits.newPost.description">
-    <input type="submit" class="button submitHabit" value="+" >
-  </form>
-</div>
-
 <div class="habitsTable">
   <h2>more</h2>
+  <div class="fullWidth">
+    <form name="habitracker.newMoreForm" ng-submit="habits.addMoreHabit()" class="newHabitForm">
+      <!-- <input type="radio" name="habit" value="more" class="radio" ng-model="habits.newPost.goal" checked><span class="radioText">more</span>
+      <input type="radio" name="habit" value="less" class="radio" ng-model="habits.newPost.goal" checked><span class="radioText">less</span> -->
+      <input type="text" placeholder="ex. watching tv" class="habitInput" ng-model="habits.newMore.description">
+      <input type="submit" class="button submitHabit" value="+" >
+    </form>
+  </div>
   <table class="table">
     <tbody>
-      <tr class="tableRow" ng-repeat="(id, habit) in habits.data | objToArr | filter: {goal: 'more'}">
+      <tr class="tableRow" ng-repeat="(id, habit) in habits.data1">
         <td class="updateTD">
-          <button class="updateInstances" ng-click="habits.updateInstances(id[i], 1)" >+</button>
+          <button class="updateInstances" ng-click="habits.updateMoreInstances(id, 1)" >+</button>
         </td>
         <td class="instances">{{habit.instances}}</td>
         <td class="habitDescription">{{habit.description}}</td>
@@ -25,15 +24,21 @@
 
 <div class="habitsTable">
   <h2>less</h2>
+  <div class="fullWidth">
+    <form name="habitracker.newLessForm" ng-submit="habits.addLessHabit()" class="newHabitForm">
+      <input type="text" placeholder="ex. watching tv" class="habitInput" ng-model="habits.newLess.description">
+      <input type="submit" class="button submitHabit" value="+" >
+    </form>
+  </div>
   <table class="table">
     <tbody>
-      <tr class="tableRow" ng-repeat="(id, habit) in habits.data | objToArr | filter: {goal: 'less'}">
+      <tr class="tableRow" ng-repeat="(id, habit) in habits.data2">
         <td class="updateTD">
-          <button class="updateInstances" ng-click="habits.updateInstances(id, 1)" >+</button>
+          <button class="updateInstances" ng-click="habits.updateLessInstances(id, 1)" >+</button>
         </td>
         <td class="instances">{{habit.instances}}</td>
         <td class="habitDescription">{{habit.description}}</td>
-        <td class="graph"><button class="button" ng-click="habits.time()">Graph</button></td>
+        <td class="graph"><button class="button">Graph</button></td>
       </tr>
     </tbody>
   </table>

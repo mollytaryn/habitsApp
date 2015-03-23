@@ -5,30 +5,45 @@ angular
 function HabitController($http, $location, $route, habitFactory) {
   var vm = this;
 
-  habitFactory.findAll(function (habits) {
-    vm.data = habits;
+  habitFactory.findMore(function (habits) {
+    vm.data1 = habits;
     console.log(habits);
   });
 
-  vm.addHabit = function() {
-    vm.newPost.instances = 0;
-    vm.newPost.days = [0];
+  /////////MORE/////////
 
-    habitFactory.create(vm.newPost, function (res) {
+  vm.addMoreHabit = function() {
+    vm.newMore.instances = 0;
+    vm.newMore.days = [0];
+
+    habitFactory.createMore(vm.newMore, function(res) {
       $route.reload();
     });
   }
 
-  vm.updateInstances = function (id, direction) {
-    habitFactory.updateInstances(id, direction);
+  habitFactory.findLess(function (habits) {
+    vm.data2 = habits;
+    console.log(habits);
+  });
+
+
+  vm.updateMoreInstances = function (id, direction) {
+    habitFactory.updateMoreInstances(id, direction);
   };
 
-  vm.testClick = function () {
-    console.log('click');
+  /////////LESS/////////
+
+  vm.addLessHabit = function() {
+    vm.newLess.instances = 0;
+    vm.newLess.days = [0];
+
+    habitFactory.createLess(vm.newLess, function(res) {
+      $route.reload();
+    });
   }
 
-  vm.time = function() {
-    var time = moment("HH:mm");
-    console.log(time);
+  vm.updateLessInstances = function (id, direction) {
+    habitFactory.updateLessInstances(id, direction);
   };
+
 }
