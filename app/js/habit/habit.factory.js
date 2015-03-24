@@ -25,24 +25,21 @@ angular
         });
     };
 
-    habits.getMoreInstances = function(id, cb) {
-      $http
-        .get(FBURL + '/users/' + fb.getAuth().uid + '/habits/more/' + id + '/instances/.json')
-        .success(function(data) {
-          cb(data);
-        });
-    };
+    // habits.getMoreInstances = function(id, cb) {
+    //   $http
+    //     .get(FBURL + '/users/' + fb.getAuth().uid + '/habits/more/' + id + '/instances/number.json')
+    //     .success(function(data) {
+    //       cb(data);
+    //     });
+    // };
 
-    habits.updateMoreInstances = function (id, direction, cb) {
-      habits.getMoreInstances(id, function(data) {
-        $http
-          .put(FBURL + '/users/' + fb.getAuth().uid + '/habits/more/' + id + '/instances/.json', data + direction)
-          .success(function (res) {
-            if (typeof cb === 'function') {
-              $route.reload();
-              cb(res);
-            }
-          });
+    habits.createMoreInstances = function (id, cb) {
+      var data = {date: new Date()}
+      $http
+        .post(FBURL + '/users/' + fb.getAuth().uid + '/habits/more/' + id + '/instances/.json', data)
+        .success(function (res) {
+            $route.reload();
+            cb(res);
         });
     };
 
@@ -65,24 +62,21 @@ angular
         });
     };
 
-    habits.getLessInstances = function(id, cb) {
-      $http
-        .get(FBURL + '/users/' + fb.getAuth().uid + '/habits/less/' + id + '/instances/.json')
-        .success(function(data) {
-          cb(data);
-        });
-    };
+    // habits.getLessInstances = function(id, cb) {
+    //   $http
+    //     .get(FBURL + '/users/' + fb.getAuth().uid + '/habits/more/' + id + '/instances/.json')
+    //     .success(function(data) {
+    //       cb(data);
+    //     });
+    // };
 
-    habits.updateLessInstances = function (id, direction, cb) {
-      habits.getLessInstances(id, function(data) {
-        $http
-          .put(FBURL + '/users/' + fb.getAuth().uid + '/habits/less/' + id + '/instances/.json', data + direction)
-          .success(function (res) {
-            if (typeof cb === 'function') {
-              $route.reload();
-              cb(res);
-            }
-          });
+    habits.createLessInstances = function (id, cb) {
+      var data = {date: new Date()}
+      $http
+        .post(FBURL + '/users/' + fb.getAuth().uid + '/habits/less/' + id + '/instances/.json', data)
+        .success(function (res) {
+            $route.reload();
+            cb(res);
         });
     };
     return habits;

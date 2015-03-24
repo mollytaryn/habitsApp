@@ -12,9 +12,9 @@
     <tbody>
       <tr class="tableRow" ng-repeat="(id, habit) in habits.data1">
         <td class="updateTD">
-          <button class="updateInstances" ng-click="habits.updateMoreInstances(id, 1)" >+</button>
+          <button class="updateInstances" ng-click="habits.createMoreInstances(id)" >+</button>
         </td>
-        <td class="instances">{{habit.instances}}</td>
+        <td class="instances">{{habit.instances.number}}</td>
         <td class="habitDescription">{{habit.description}}</td>
         <td class="graph"><button class="button">Graph</button></td>
       </tr>
@@ -34,9 +34,9 @@
     <tbody>
       <tr class="tableRow" ng-repeat="(id, habit) in habits.data2">
         <td class="updateTD">
-          <button class="updateInstances" ng-click="habits.updateLessInstances(id, 1)" >+</button>
+          <button class="updateInstances" ng-click="habits.createLessInstances(id)">+</button>
         </td>
-        <td class="instances">{{habit.instances}}</td>
+        <td class="instances">{{habit.instances.number}}</td>
         <td class="habitDescription">{{habit.description}}</td>
         <td class="graph"><button class="button">Graph</button></td>
       </tr>
