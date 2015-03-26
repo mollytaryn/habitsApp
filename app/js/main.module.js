@@ -1,1 +1,1 @@
-angular.module('habitracker', ['ngRoute']);
+angular.module('habitracker', ['ngRoute', 'angularCharts']);

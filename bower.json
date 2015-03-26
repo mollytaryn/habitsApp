@@ -17,6 +17,6 @@
   ],
   "dependencies": {
     "firebase": "~2.2.3",
-    "moment": "~2.9.0"
+    "d3": "~3.5.5"
   }
 }

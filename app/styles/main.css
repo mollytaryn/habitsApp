@@ -211,3 +211,8 @@ td {
 .graph {
   width: 60px;
 }
+
+.chart {
+  width: 500px;
+  height: 500px;
+}
