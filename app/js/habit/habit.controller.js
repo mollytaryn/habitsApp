@@ -3,7 +3,11 @@ angular
   .controller('HabitController', HabitController);
 
 function HabitController($http, $location, $route, $scope, habitFactory) {
+
   var vm = this;
+  vm.month = new Date().getMonth() + 1;
+  vm.day = new Date().getDate();
+  vm.year = new Date().getFullYear();
 
   /////////MORE/////////
 
@@ -11,6 +15,16 @@ function HabitController($http, $location, $route, $scope, habitFactory) {
     vm.data1 = habits;
     console.log(habits);
   });
+
+    habitFactory.getMoreInstancesData(function(instances) {
+      vm.data3 = instances;
+      console.log(instances);
+    });
+
+  // var dataArray = $.map(moreObject, function(keys) {
+  //   return keys;
+  //   console.log(dataArray);
+  // });
 
   vm.addMoreHabit = function() {
     habitFactory.createMore(vm.newMore, function(res) {
@@ -24,20 +38,12 @@ function HabitController($http, $location, $route, $scope, habitFactory) {
     });
   };
 
-  // vm.instancesArray = function() {};
-  // }
-
   /////////LESS/////////
 
   habitFactory.findLess(function(habits) {
     vm.data2 = habits;
     console.log(habits);
   });
-
-  // habitFactory.getLessInstances(id, function(instances) {
-  //   vm.data2 = instances;
-  //   console.log(instances);
-  // });
 
   vm.addLessHabit = function() {
     habitFactory.createLess(vm.newLess, function(res) {
@@ -52,16 +58,14 @@ function HabitController($http, $location, $route, $scope, habitFactory) {
   };
 
   $scope.config = {
-    title: 'TITLE!!!',
     tooltips: false,
     labels: false
   };
 
   $scope.data = {
-    series: ['Date'],
     data: [{
-      x: 'Date',
-      y: [1, 2, 3, 4, 5]
+      x: 'days',
+      y: [1, 2, 3, 2, 6]
     }]
   };
 }

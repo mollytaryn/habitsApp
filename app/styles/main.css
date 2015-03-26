@@ -213,6 +213,16 @@ td {
 }
 
 .chart {
-  width: 500px;
-  height: 500px;
+  width: 100%;
+  margin: auto;
+  height: 200px;
+  font-size: 10px;
+}
+
+.chartTr {
+  background-color: #4C5764;
+  text-align: center;
+}
+
+.chartTd {
 }

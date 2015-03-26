@@ -2,30 +2,34 @@
   <h2>more</h2>
   <div class="fullWidth">
     <form name="habitracker.newMoreForm" ng-submit="habits.addMoreHabit()" class="newHabitForm">
-      <!-- <input type="radio" name="habit" value="more" class="radio" ng-model="habits.newPost.goal" checked><span class="radioText">more</span>
-      <input type="radio" name="habit" value="less" class="radio" ng-model="habits.newPost.goal" checked><span class="radioText">less</span> -->
       <input type="text" placeholder="ex. watching tv" class="habitInput" ng-model="habits.newMore.description">
       <input type="submit" class="button submitHabit" value="+" >
     </form>
   </div>
   <table class="table">
-    <tbody>
-      <tr class="tableRow" ng-repeat="(id, habit) in habits.data1">
+    <tbody ng-repeat="(id, habit) in habits.data1">
+      <tr class="tableRow">
         <td class="updateTD">
-          <button class="updateInstances" ng-click="habits.createMoreInstances(id)" >+</button>
+          <button class="updateInstances" id="updateInstances" ng-click="habits.createMoreInstances(id)" >+</button>
         </td>
-        <td class="instances">{{habit.instances.number}}</td>
+        <td class="instances"><div id="{{id}}">?</div></td>
         <td class="habitDescription">{{habit.description}}</td>
-        <td class="graph"><button class="button">Graph</button></td>
+        <td class="graph">
+          <button class="button" ng-click="chartTr = !chartTr">Graph</button>
+        </td>
+      </tr>
+      <tr class="chartTr" ng-show="chartTr">
+        <td class="chartTd" colspan="4">
+          <div ac-chart="'bar'" ac-data="data" ac-config="config" id='chart' class='chart'></div>
+        </td>
       </tr>
     </tbody>
   </table>
+
 </div>
 
-<!-- <div ac-chart="'bar'" ac-data="data" ac-config="config" id='chart' class='chart'></div> -->
-
-
-
+<!-- //{{habit.instances + '.' + habits.year + '.' + habits.month + '.' + habits.day}} -->
+<!--  -->
 
 <div class="habitsTable">
   <h2>less</h2>
@@ -41,7 +45,7 @@
         <td class="updateTD">
           <button class="updateInstances" ng-click="habits.createLessInstances(id)">+</button>
         </td>
-        <td class="instances">{{habit.instances.number}}</td>
+        <td class="instances"><div id="{{id}}">?</div></td>
         <td class="habitDescription">{{habit.description}}</td>
         <td class="graph"><button class="button">Graph</button></td>
       </tr>
