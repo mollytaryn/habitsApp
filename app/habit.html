@@ -12,7 +12,7 @@
         <td class="updateTD">
           <button class="updateInstances" id="updateInstances" ng-click="habits.createMoreInstances(id)" >+</button>
         </td>
-        <td class="instances"><div id="{{id}}">?</div></td>
+        <td class="instances"><div id="{{id}}">{{habits.date}}</div></td>
         <td class="habitDescription">{{habit.description}}</td>
         <td class="graph">
           <button class="button" ng-click="chartTr = !chartTr">Graph</button>

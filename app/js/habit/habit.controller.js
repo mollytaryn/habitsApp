@@ -8,6 +8,7 @@ function HabitController($http, $location, $route, $scope, habitFactory) {
   vm.month = new Date().getMonth() + 1;
   vm.day = new Date().getDate();
   vm.year = new Date().getFullYear();
+  vm.date = vm.month + '-' + vm.day;
 
   /////////MORE/////////
 
@@ -16,15 +17,30 @@ function HabitController($http, $location, $route, $scope, habitFactory) {
     console.log(habits);
   });
 
-    habitFactory.getMoreInstancesData(function(instances) {
-      vm.data3 = instances;
-      console.log(instances);
+  habitFactory.getMoreInstancesData(function (instances) {
+    vm.data3 = instances;
+    vm.array = $.map(instances, function(value, index) {
+      return [value];
+      console.log(value)
     });
+    vm.keys = $.map(instances, function(value, index) {
+      return [index];
+    });
+    console.log(vm.keys);
+    console.log(vm.array);
 
-  // var dataArray = $.map(moreObject, function(keys) {
-  //   return keys;
-  //   console.log(dataArray);
-  // });
+    $scope.config = {
+      tooltips: true,
+      labels: true
+    };
+
+    $scope.data = {
+      data: [{
+        x: 'instances per day',
+        y: vm.array
+      }]
+    };
+  });
 
   vm.addMoreHabit = function() {
     habitFactory.createMore(vm.newMore, function(res) {
@@ -55,17 +71,5 @@ function HabitController($http, $location, $route, $scope, habitFactory) {
     habitFactory.createLessInstances(id, function(res) {
       console.log('new instance');
     });
-  };
-
-  $scope.config = {
-    tooltips: false,
-    labels: false
-  };
-
-  $scope.data = {
-    data: [{
-      x: 'days',
-      y: [1, 2, 3, 2, 6]
-    }]
   };
 }
