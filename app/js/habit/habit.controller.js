@@ -14,33 +14,36 @@ function HabitController($http, $location, $route, $scope, habitFactory) {
 
   habitFactory.findMore(function (habits) {
     vm.data1 = habits;
-    console.log(habits);
-  });
 
-  habitFactory.getMoreInstancesData(function (instances) {
-    vm.data3 = instances;
-    vm.array = $.map(instances, function(value, index) {
-      return [value];
-      console.log(value)
-    });
-    vm.keys = $.map(instances, function(value, index) {
-      return [index];
-    });
-    console.log(vm.keys);
-    console.log(vm.array);
-
-    $scope.config = {
+    vm.config = {
       tooltips: true,
       labels: true
     };
 
-    $scope.data = {
-      data: [{
-        x: 'instances per day',
-        y: vm.array
-      }]
-    };
+    Object.keys(habits).forEach(function (id) {
+
+      vm.data1[id].chartData = {
+        data: []
+      };
+
+      vm.data1[id].todaysCount = todaysCount(habits[id]);
+
+      var ins = $.map(habits[id].instances, function(value, index) {
+        vm.data1[id].chartData.data.push({x: [index], y: [value]})
+      });
+
+    });
+
   });
+
+  function todaysCount(habit) {
+    var month = new Date().getMonth() + 1;
+    var day = new Date().getDate();
+    var year = new Date().getFullYear();
+    var date = year + '-' + month + '-' + day;
+
+    return habit.instances[date];
+  }
 
   vm.addMoreHabit = function() {
     habitFactory.createMore(vm.newMore, function(res) {
