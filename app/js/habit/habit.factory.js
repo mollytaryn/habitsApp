@@ -16,14 +16,6 @@ angular
         });
     };
 
-    habits.getMoreInstances = function(id, cb) {
-      $http
-        .get(FBURL + '/users/' + fb.getAuth().uid + '/habits/more/' + id + '/instances.json')
-        .success(function(data) {
-          cb(data);
-        });
-    };
-
     habits.createMore = function(data, cb) {
       $http
         .post(FBURL + '/users/' + fb.getAuth().uid + '/habits/more/.json', data)
@@ -34,12 +26,38 @@ angular
     };
 
     habits.createMoreInstances = function (id, cb) {
-      var data = {date: new Date()}
-      $http
-        .post(FBURL + '/users/' + fb.getAuth().uid + '/habits/more/' + id + '/instances/.json', data)
-        .success(function (res) {
-            $route.reload();
+      var month = new Date().getMonth() + 1;
+      var day = new Date().getDate();
+      var year = new Date().getFullYear();
+      var dateUrl = year + '/' + month;
+
+      habits.getMoreInstances(id, function(count) {
+        var data = {};
+        data[day] = count;
+
+        $http
+          .patch(FBURL + '/users/' + fb.getAuth().uid + '/habits/more/' + id + '/instances/'+ dateUrl + '.json', data)
+          .success(function (res) {
             cb(res);
+        });
+      });
+    };
+
+    habits.getMoreInstances = function(id, cb) {
+      var month = new Date().getMonth() + 1;
+      var day = new Date().getDate();
+      var year = new Date().getFullYear();
+      var dateUrl = year + '/' + month + '/' + day;
+
+      $http
+        .get(FBURL + '/users/' + fb.getAuth().uid + '/habits/more/' + id + '/instances/' + dateUrl + '.json')
+        .success(function(count) {
+          if (count) {
+            count++;
+          } else {
+            count = 1;
+          }
+          cb(count);
         });
     };
 
@@ -98,6 +116,5 @@ angular
           cb(count);
         });
     };
-
     return habits;
   }
