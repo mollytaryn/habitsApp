@@ -16,14 +16,6 @@ angular
         });
     };
 
-    habits.getMoreInstancesData = function(cb) {
-      $http
-        .get(FBURL + '/users/' + fb.getAuth().uid + '/habits/more/-JlIpI7p3rTEUN9Whr2G/instances.json')
-        .success(function(data) {
-          cb(data);
-        });
-    };
-
     habits.createMore = function(data, cb) {
       $http
         .post(FBURL + '/users/' + fb.getAuth().uid + '/habits/more/.json', data)
@@ -108,15 +100,15 @@ angular
       var month = new Date().getMonth() + 1;
       var day = new Date().getDate();
       var year = new Date().getFullYear();
-      var dateUrl = year + '/' + month;
+      var dateUrl = year + '-' + month + '-' + day;
 
       habits.getLessInstances(id, function(count) {
         habits.appendLessInstances(id, count);
         var data = {};
-        data[day] = count;
+        data[year + '-' + month + '-' + day] = count;
 
         $http
-          .patch(FBURL + '/users/' + fb.getAuth().uid + '/habits/less/' + id + '/instances/'+ dateUrl + '.json', data)
+          .patch(FBURL + '/users/' + fb.getAuth().uid + '/habits/less/' + id + '/instances/.json', data)
           .success(function (res) {
             cb(res);
         });
@@ -127,7 +119,7 @@ angular
       var month = new Date().getMonth() + 1;
       var day = new Date().getDate();
       var year = new Date().getFullYear();
-      var dateUrl = year + '/' + month + '/' + day;
+      var dateUrl = year + '-' + month + '-' + day;
 
       $http
         .get(FBURL + '/users/' + fb.getAuth().uid + '/habits/less/' + id + '/instances/' + dateUrl + '.json')
