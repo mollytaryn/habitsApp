@@ -10,16 +10,19 @@
     <tbody ng-repeat="(id, habit) in habits.data1">
       <tr class="tableRow">
         <td class="updateTD">
-          <button class="updateInstances" id="updateInstances" ng-click="habits.createMoreInstances(id)" >+</button>
+          <button class="updateInstances" id="updateInstances" ng-click="habits.noMoreInstances(id)">0</button>
         </td>
-        <td class="instances"><div id="{{id}}">{{habit.todaysCount || 0}}</div></td>
+        <td class="updateTD">
+          <button class="updateInstances" id="updateInstances" ng-click="habits.createMoreInstances(id)">+</button>
+        </td>
+        <td class="moreInstances"><div id="{{id}}">{{habit.todaysCount || 0}}</div></td>
         <td class="habitDescription">{{habit.description}}</td>
         <td class="graph">
           <button class="button" ng-click="chartTr = !chartTr">Graph</button>
         </td>
       </tr>
       <tr class="chartTr" ng-show="chartTr">
-        <td class="chartTd" colspan="4">
+        <td class="chartTd" colspan="5">
           <div ac-chart="'bar'" ac-data="habit.moreChartData" ac-config="config" id='chart' class='chart'></div>
         </td>
       </tr>
@@ -39,9 +42,12 @@
     <tbody ng-repeat="(id, habit) in habits.data2">
       <tr class="tableRow">
         <td class="updateTD">
-          <button class="updateInstances" id="updateInstances" ng-click="habits.createLessInstances(id)" >+</button>
+          <button class="updateInstances" id="updateInstances" ng-click="habits.createMoreInstances(id)">0</button>
         </td>
-        <td class="instances"><div id="{{id}}">{{habit.todaysCount || 0}}</div></td>
+        <td class="updateTD">
+          <button class="updateInstances" id="updateInstances" ng-click="habits.createLessInstances(id)">+</button>
+        </td>
+        <td class="lessInstances"><div id="{{id}}">{{habit.todaysCount || 0}}</div></td>
         <td class="habitDescription">{{habit.description}}</td>
         <td class="graph">
           <button class="button" ng-click="lessChartTr = !lessChartTr">Graph</button>

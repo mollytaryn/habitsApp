@@ -179,12 +179,21 @@ td {
   width: 60px;
 }
 
-.instances {
+.moreInstances {
   text-align: center;
   padding: 10px 20px;
-  width: 90px;
+  width: 20px;
   font-weight: 700;
   color: white;
+}
+
+.lessInstances {
+  text-align: center;
+  padding: 10px 20px;
+  width: 20px;
+  font-weight: 700;
+  /*background-color: #C44D58;*/
+  color: #C44D58;
 }
 
 .updateInstances {
@@ -206,6 +215,7 @@ td {
 
 .habitDescription {
   width: 200px;
+  padding-left: 20px;
 }
 
 .graph {

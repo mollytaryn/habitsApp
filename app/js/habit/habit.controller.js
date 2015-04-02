@@ -54,6 +54,12 @@ function HabitController($http, $location, $route, habitFactory) {
     });
   };
 
+  vm.noMoreInstances = function(id) {
+    habitFactory.noMoreInstances(id, function(res) {
+      console.log('missed day');
+    });
+  };
+
   /////////LESS/////////
 
   habitFactory.findLess(function (habits) {
@@ -89,6 +95,12 @@ function HabitController($http, $location, $route, habitFactory) {
   vm.createLessInstances = function(id) {
     habitFactory.createLessInstances(id, function(res) {
       console.log('new instance');
+    });
+  };
+
+  vm.noLessInstances = function(id) {
+    habitFactory.noLessInstances(id, function(res) {
+      console.log('missed day');
     });
   };
 }
