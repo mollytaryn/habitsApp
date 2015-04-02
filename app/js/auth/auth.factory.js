@@ -30,7 +30,7 @@ function authFactory(FBURL) {
     },
     logout: function(cb) {
       var fb = new Firebase(FBURL);
-      fb.unath(cb);
+      fb.unauth(cb);
     }
   };
 }

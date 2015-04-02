@@ -2,7 +2,7 @@ angular
   .module('habitracker')
   .controller('HabitController', HabitController);
 
-function HabitController($http, $location, $route, habitFactory) {
+function HabitController($http, $location, $route, $scope, habitFactory) {
 
   var vm = this;
   // vm.month = new Date().getMonth() + 1;
@@ -16,6 +16,10 @@ function HabitController($http, $location, $route, habitFactory) {
     var date = year + '-' + month + '-' + day;
 
     return habit.instances[date];
+  };
+
+  vm.mainPage = function() {
+    $location.path('/habit');
   };
 
   /////////MORE/////////

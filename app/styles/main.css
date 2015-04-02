@@ -192,7 +192,6 @@ td {
   padding: 10px 20px;
   width: 20px;
   font-weight: 700;
-  /*background-color: #C44D58;*/
   color: #C44D58;
 }
 
@@ -227,7 +226,7 @@ td {
   margin: auto;
   height: 200px;
   font-size: 14px;
-  font-color: white;
+  color: white;
 }
 
 .chartTr {
@@ -236,4 +235,52 @@ td {
 }
 
 .chartTd {
+}
+
+/*********SETUP********/
+
+.h3Setup {
+  color: #39414A;
+  font-family: lato;
+  font-size: 14px;
+  margin-bottom: 0;
+  padding-top: 3px;
+  /*background-color: #8E98A3;*/
+}
+
+.setupForm {
+  display: inline;
+  border-radius: 5px;
+  margin: auto;
+  margin-bottom: 0;
+  padding: 10px 0;
+}
+
+ul {
+  margin-top: 5px;
+  margin-bottom: 20px;
+}
+
+.setupList {
+  text-align: left;
+  font-family: lato;
+  color: #C44D58;
+  margin-left: 40px;
+}
+
+.setupFullWidth {
+  width: 100%;
+  text-align: center;
+  /*background: #8E98A3;*/
+}
+
+.setupInput {
+  margin: 5px -4px 5px 20px;
+  padding-left: 5px;
+  width: 200px;
+  height: 27px;
+  border: 1px solid #4C5764;
+  border-radius: 5px 0px 0px 5px;
+  font-family: helvetica;
+  font-size: 13px;
 }
