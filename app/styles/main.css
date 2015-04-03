@@ -82,6 +82,23 @@ h1 {
   background-color: #B9E35D;
 }
 
+.badButton {
+  margin: 5px;
+  width: 80%;
+  height: 32px;
+  font-family: helvetica;
+  font-size: 15px;
+  color: white;
+  text-align: center;
+  border-radius: 5px;
+  border: none;
+  background-color: #FF6B6B;
+}
+
+.badButton:hover {
+  background-color: #C44D58;
+}
+
 .register {
   background-color: #E5E5E5;
 }
@@ -149,9 +166,11 @@ h1 {
 
 h2 {
   font-family: lato;
+  font-size: 20px;
   margin-left: 10px;
-  color: white;
+  margin-bottom: -3px;
   text-align: left;
+  color: #B9E35D;
 }
 
 .habitsTable {
@@ -192,7 +211,7 @@ td {
   padding: 10px 20px;
   width: 20px;
   font-weight: 700;
-  color: #C44D58;
+  color: white;
 }
 
 .updateInstances {

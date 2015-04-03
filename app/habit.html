@@ -1,5 +1,5 @@
 <div class="habitsTable">
-  <h2>more</h2>
+  <h2>your good habits</h2>
   <div class="fullWidth">
     <form name="habitracker.newMoreForm" ng-submit="habits.addMoreHabit()" class="newHabitForm">
       <input type="text" placeholder="ex. exercising" class="habitInput" ng-model="habits.newMore.description">
@@ -10,7 +10,7 @@
     <tbody ng-repeat="(id, habit) in habits.data1">
       <tr class="tableRow">
         <td class="updateTD">
-          <button class="updateInstances" id="updateInstances" ng-click="habits.noMoreInstances(id)">0</button>
+          <button class="updateInstances" id="updateInstances" ng-click="habits.noMoreInstances(id)"><span class="icon-spinner11"></span></button>
         </td>
         <td class="updateTD">
           <button class="updateInstances" id="updateInstances" ng-click="habits.createMoreInstances(id)">+</button>
@@ -18,7 +18,7 @@
         <td class="moreInstances"><div id="{{id}}">{{habit.todaysCount || 0}}</div></td>
         <td class="habitDescription">{{habit.description}}</td>
         <td class="graph">
-          <button class="button" ng-click="chartTr = !chartTr">Graph</button>
+          <button class="button" ng-click="chartTr = !chartTr"><span class="icon-stats-bars"></button>
         </td>
       </tr>
       <tr class="chartTr" ng-show="chartTr">
@@ -31,7 +31,7 @@
 </div>
 
 <div class="habitsTable">
-  <h2>less</h2>
+  <h2>your bad habits</h2>
   <div class="fullWidth">
     <form name="habitracker.newLessForm" ng-submit="habits.addLessHabit()" class="newHabitForm">
       <input type="text" placeholder="ex. watching tv" class="habitInput" ng-model="habits.newLess.description">
@@ -42,7 +42,7 @@
     <tbody ng-repeat="(id, habit) in habits.data2">
       <tr class="tableRow">
         <td class="updateTD">
-          <button class="updateInstances" id="updateInstances" ng-click="habits.createMoreInstances(id)">0</button>
+          <button class="updateInstances" id="updateInstances" ng-click="habits.noLessInstances(id)"><span class="icon-spinner11"></span></button>
         </td>
         <td class="updateTD">
           <button class="updateInstances" id="updateInstances" ng-click="habits.createLessInstances(id)">+</button>
@@ -50,11 +50,11 @@
         <td class="lessInstances"><div id="{{id}}">{{habit.todaysCount || 0}}</div></td>
         <td class="habitDescription">{{habit.description}}</td>
         <td class="graph">
-          <button class="button" ng-click="lessChartTr = !lessChartTr">Graph</button>
+          <button class="button" ng-click="lessChartTr = !lessChartTr"><span class="icon-stats-bars"></button>
         </td>
       </tr>
       <tr class="chartTr" ng-show="lessChartTr">
-        <td class="chartTd" colspan="4">
+        <td class="chartTd" colspan="5">
           <div ac-chart="'bar'" ac-data="habit.lessChartData" ac-config="config" id='chart' class='chart'></div>
         </td>
       </tr>

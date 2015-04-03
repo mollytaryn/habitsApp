@@ -159,7 +159,7 @@ function habitFactory($http, $route, FBURL) {
     data[year + '-' + month + '-' + day] = 0;
 
     $http
-      .patch(FBURL + '/users/' + fb.getAuth().uid + '/habits/more/' + id + '/instances/.json', data)
+      .patch(FBURL + '/users/' + fb.getAuth().uid + '/habits/less/' + id + '/instances/.json', data)
       .success(function (res) {
         cb(res);
       });
