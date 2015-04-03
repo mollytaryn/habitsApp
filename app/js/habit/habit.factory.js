@@ -164,5 +164,10 @@ function habitFactory($http, $route, FBURL) {
         cb(res);
       });
   };
+
+  habits.logout = function(cb) {
+    var fb = new Firebase(FBURL);
+    fb.unauth(cb);
+  };
   return habits;
 }

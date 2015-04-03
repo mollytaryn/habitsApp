@@ -12,10 +12,6 @@ function authFactory(FBURL) {
       var fb = new Firebase(FBURL);
       return fb.getAuth();
     },
-    firstLogin: function(user, cb) {
-      var fb = new Firebase(FBURL);
-      fb.authWithPassword(user, cb);
-    },
     login: function(user, cb) {
       var fb = new Firebase(FBURL);
       fb.authWithPassword(user, cb);
@@ -27,10 +23,6 @@ function authFactory(FBURL) {
     resetPassword: function(user, cb) {
       var fb = new Firebase(FBURL);
       fb.resetPassword(user, cb);
-    },
-    logout: function(cb) {
-      var fb = new Firebase(FBURL);
-      fb.unauth(cb);
     }
   };
 }

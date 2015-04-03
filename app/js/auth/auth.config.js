@@ -10,17 +10,6 @@ function authConfig($routeProvider) {
       templateUrl: 'login.html',
       controller: 'AuthController',
       controllerAs: 'auth'
-      // resolve: {
-      //   data: function ($location, authFactory) {
-      //     if (authFactory.isLoggedIn()) {
-      //       $location.path('/habit')
-      //     }
-      //   }
-      // }
-    })
-    .when('/logout', {
-      template: '',
-      controller: 'LogoutController'
     });
 }
 

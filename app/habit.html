@@ -10,7 +10,7 @@
     <tbody ng-repeat="(id, habit) in habits.data1">
       <tr class="tableRow">
         <td class="updateTD">
-          <button class="updateInstances" id="updateInstances" ng-click="habits.noMoreInstances(id)"><span class="icon-spinner11"></span></button>
+          <button class="updateInstances" id="updateInstances" ng-click="habits.noMoreInstances(id)"><span class="icon-wondering"></span></button>
         </td>
         <td class="updateTD">
           <button class="updateInstances" id="updateInstances" ng-click="habits.createMoreInstances(id)">+</button>
@@ -49,7 +49,7 @@
     <tbody ng-repeat="(id, habit) in habits.data2">
       <tr class="tableRow">
         <td class="updateTD">
-          <button class="updateInstances" id="updateInstances" ng-click="habits.noLessInstances(id)"><span class="icon-spinner11"></span></button>
+          <button class="updateInstances" id="updateInstances" ng-click="habits.noLessInstances(id)"><span class="icon-cool"></span></button>
         </td>
         <td class="updateTD">
           <button class="updateInstances" id="updateInstances" ng-click="habits.createLessInstances(id)">+</button>
@@ -76,4 +76,4 @@
   </table>
 </div>
 
-<button ng-click="auth.logout()">log out</button>
+<button ng-click="habits.logout()">log out</button>

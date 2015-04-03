@@ -1,6 +1,6 @@
-<form name="loginForm" ng-submit="auth.login()" class="loginForm">
+<form name="loginForm" class="loginForm">
   <input type="email" placeholder="email" class="textInput" ng-model="auth.user.email" required>
   <input type="password" placeholder="password" class="textInput" ng-model="auth.user.password" required>
-  <input type="submit" class="button" value="log in">
+  <button class="button" ng-click="auth.login()">log in</button>
   <button class="button register" ng-click="auth.register()">new user</button>
 </form>

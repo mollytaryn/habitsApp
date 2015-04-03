@@ -13,8 +13,8 @@ function habitConfig($routeProvider) {
       templateUrl: 'welcome.html',
       controller: 'HabitController',
       controllerAs: 'habits'
-    })
-    .otherwise({
-      redirectTo: '/habit'
+    // })
+    // .otherwise({
+    //   redirectTo: '/habit'
     });
 }

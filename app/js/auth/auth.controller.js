@@ -12,7 +12,7 @@ function AuthController($rootScope, $scope, $location, authFactory, FBURL) {
       if (err) {
         console.log(err);
       } else {
-        console.log('Success', authData);
+        console.log('Login success', authData);
         $rootScope.user = authData;
         $location.path('/habit');
         $scope.$apply();
@@ -20,28 +20,15 @@ function AuthController($rootScope, $scope, $location, authFactory, FBURL) {
     });
   };
 
-  this.firstLogin = function() {
-    authFactory.firstLogin(this.user, function(err, authData) {
-      if (err) {
-        console.log(err);
-      } else {
-        console.log('Success', authData);
+  this.register = function() {
+    authFactory.register(this.user, function(err, authData) {
+      if (!err) {
         $rootScope.user = authData;
         $location.path('/welcome');
         $scope.$apply();
-      }
-    });
-  };
-
-  this.register = function() {
-    authFactory.register(this.user, function(err, authData) {
-      if (err && err.code === "EMAIL_TAKEN") {
-        this.login();
-      } else if (err) {
-        console.log(err);
-      } else {
         console.log('Registered new user!', authData);
-        this.firstLogin();
+      } else {
+        console.log(err);
       }
     });
   };

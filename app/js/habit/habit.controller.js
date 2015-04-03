@@ -2,7 +2,7 @@ angular
   .module('habitracker')
   .controller('HabitController', HabitController);
 
-function HabitController($http, $location, $route, $scope, habitFactory) {
+function HabitController($http, $location, $rootScope, $route, $scope, habitFactory) {
 
   var vm = this;
   // vm.month = new Date().getMonth() + 1;
@@ -131,6 +131,17 @@ function HabitController($http, $location, $route, $scope, habitFactory) {
   vm.noLessInstances = function(id) {
     habitFactory.noLessInstances(id, function(res) {
       console.log('missed day');
+    });
+  };
+
+  /////////LOGOUT/////////
+
+  vm.logout = function() {
+    habitFactory.logout(function() {
+      console.log('Logged out');
+      delete $rootScope.user;
+      $location.path('/login');
+      $scope.$apply();
     });
   };
 }
