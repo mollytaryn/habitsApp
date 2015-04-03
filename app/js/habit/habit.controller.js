@@ -34,11 +34,24 @@ function HabitController($http, $location, $route, $scope, habitFactory) {
 
     Object.keys(habits).forEach(function (id) {
 
+      vm.data1[id].obj = (habits[id].instances);
+      vm.data1[id].daysTracked = [];
+      $.each(vm.data1[id].obj, function(value, index) {
+        vm.data1[id].daysTracked.push(index);
+      });
+
+      vm.data1[id].total = 0;
+      $.each(vm.data1[id].daysTracked, function () {
+        vm.data1[id].total += this;
+      });
+
+      vm.data1[id].average = vm.data1[id].total / vm.data1[id].daysTracked.length;
+
+      vm.data1[id].todaysCount = todaysCount(habits[id]);
+
       vm.data1[id].moreChartData = {
         data: []
       };
-
-      vm.data1[id].todaysCount = todaysCount(habits[id]);
 
       var ins = $.map(habits[id].instances, function(value, index) {
         vm.data1[id].moreChartData.data.push({x: [index], y: [value]})
@@ -76,11 +89,24 @@ function HabitController($http, $location, $route, $scope, habitFactory) {
 
     Object.keys(habits).forEach(function (id) {
 
+      vm.data2[id].obj = (habits[id].instances);
+      vm.data2[id].daysTracked = [];
+      $.each(vm.data2[id].obj, function(value, index) {
+        vm.data2[id].daysTracked.push(index);
+      });
+
+      vm.data2[id].total = 0;
+      $.each(vm.data2[id].daysTracked, function () {
+        vm.data2[id].total += this;
+      });
+
+      vm.data2[id].average = vm.data2[id].total / vm.data2[id].daysTracked.length;
+
+      vm.data2[id].todaysCount = todaysCount(habits[id]);
+
       vm.data2[id].lessChartData = {
         data: []
       };
-
-      vm.data2[id].todaysCount = todaysCount(habits[id]);
 
       var ins = $.map(habits[id].instances, function(value, index) {
         vm.data2[id].lessChartData.data.push({x: [index], y: [value]})

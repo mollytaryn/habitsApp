@@ -239,10 +239,23 @@ td {
   width: 60px;
 }
 
+.chartTd {
+  padding-left: 10px;
+  width: 100%;
+  font-size: 16px;
+}
+
+.chartData {
+  font-size: 15px;
+  padding: 10px 20px 10px 0;
+  font-weight: 700;
+  color: white;
+}
+
 .chart {
   width: 100%;
   margin: auto;
-  height: 200px;
+  height: 240px;
   font-size: 14px;
   color: white;
 }

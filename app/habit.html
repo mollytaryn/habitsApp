@@ -21,6 +21,13 @@
           <button class="button" ng-click="chartTr = !chartTr"><span class="icon-stats-bars"></button>
         </td>
       </tr>
+      <tr ng-show="chartTr">
+        <td class="chartTd" colspan="5">
+          days: <span class="chartData">{{habit.daysTracked.length}}</span>
+          total: <span class="chartData">{{habit.total || 0}}</span>
+          average: <span class="chartData">{{habit.average || 0}} instances/day</span>
+        </td>
+      </tr>
       <tr class="chartTr" ng-show="chartTr">
         <td class="chartTd" colspan="5">
           <div ac-chart="'bar'" ac-data="habit.moreChartData" ac-config="config" id='chart' class='chart'></div>
@@ -51,6 +58,13 @@
         <td class="habitDescription">{{habit.description}}</td>
         <td class="graph">
           <button class="button" ng-click="lessChartTr = !lessChartTr"><span class="icon-stats-bars"></button>
+        </td>
+      </tr>
+      <tr ng-show="lessChartTr">
+        <td class="chartTd" colspan="5">
+          days: <span class="chartData">{{habit.daysTracked.length}}</span>
+          total: <span class="chartData">{{habit.total || 0}}</span>
+          average: <span class="chartData">{{habit.average || 0}} instances/day</span>
         </td>
       </tr>
       <tr class="chartTr" ng-show="lessChartTr">
