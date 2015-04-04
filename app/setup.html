@@ -1,0 +1,30 @@
+<div class="loginForm">
+  <h1 class="welcomeh1">Setup</h1>
+  <div class="habitsTable">
+    <h3 class="h3Setup">set up a good habit (or more):</h3>
+    <div class="setupFullWidth">
+      <form name="habitracker.newMoreForm" ng-submit="habits.addMoreHabit()" class="setupForm">
+        <input type="text" placeholder="ex. exercising" class="setupInput" ng-model="habits.newMore.description">
+        <input type="submit" class="button submitHabit" value="+" >
+      </form>
+    </div>
+    <ul>
+      <li ng-repeat="(id, habit) in habits.data1" class="setupList">{{habit.description}}</li>
+    </ul>
+  <div class="habitsTable">
+    <h3 class="h3Setup">set up a bad habit (or more):</h3>
+    <div class="setupFullWidth">
+      <form name="habitracker.newLessForm" ng-submit="habits.addLessHabit()" class="setupForm">
+        <input type="text" placeholder="ex. watching tv" class="setupInput" ng-model="habits.newLess.description">
+        <input type="submit" class="button submitHabit" value="+" >
+      </form>
+    </div>
+    <ul>
+      <li ng-repeat="(id, habit) in habits.data2" class="setupList">{{habit.description}}</li>
+    </ul>
+  </div>
+
+  <form name="nextForm" ng-submit="habits.mainPage()">
+    <input type="submit" class="button" value="next">
+  </form>
+</div>

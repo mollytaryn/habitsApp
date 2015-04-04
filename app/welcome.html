@@ -1,29 +1,21 @@
 <div class="loginForm">
-  <div class="habitsTable">
-    <h3 class="h3Setup">set up a good habit (or more):</h3>
-    <div class="setupFullWidth">
-      <form name="habitracker.newMoreForm" ng-submit="habits.addMoreHabit()" class="setupForm">
-        <input type="text" placeholder="ex. exercising" class="setupInput" ng-model="habits.newMore.description">
-        <input type="submit" class="button submitHabit" value="+" >
-      </form>
-    </div>
-    <ul>
-      <li ng-repeat="(id, habit) in habits.data1" class="setupList">{{habit.description}}</li>
-    </ul>
-  <div class="habitsTable">
-    <h3 class="h3Setup">set up a bad habit (or more):</h3>
-    <div class="setupFullWidth">
-      <form name="habitracker.newLessForm" ng-submit="habits.addLessHabit()" class="setupForm">
-        <input type="text" placeholder="ex. watching tv" class="setupInput" ng-model="habits.newLess.description">
-        <input type="submit" class="button submitHabit" value="+" >
-      </form>
-    </div>
-    <ul>
-      <li ng-repeat="(id, habit) in habits.data2" class="setupList">{{habit.description}}</li>
-    </ul>
-  </div>
-
-  <form name="nextForm" ng-submit="habits.mainPage()">
-    <input type="submit" class="button" value="next">
-  </form>
+  <h1 class="welcomeh1">Welcome</h1>
+  <h3 class="h3SetupLeft">
+    This habit-tracking app is designed to help you lessen bad habits and establish good ones by giving you real data about your behaviors. Follow the instructions below to get started:
+  </h3>
+  <ol class="h3OlLeft">
+    <li class="spacing">
+      Set up the good and bad habits you want to track. A habit can be anything from exercising for 30 minutes, to checking Facebook, to smoking. You name it.
+    </li>
+    <li class="spacing">
+      Every time you engage in one of your habits, tap the “+” button. This will count instances by day.
+    </li>
+    <li class="spacing">
+      Skip a good habit / resist a bad habit for a day? Before bed, click the “0” button to log a zero for the day. (Remember, when it comes to changing habits, not doing is just as important as doing!)
+    <li class="spacing">
+      Use the graph button to check on your progress. This data will help you take control of your habits so you can make real and lasting changes.
+    </li>
+  </ol>
+  <br>
+  <button class="button" ng-click="habits.setupPage()">get started</button>
 </div>

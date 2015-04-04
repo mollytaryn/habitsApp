@@ -18,6 +18,10 @@ function HabitController($http, $location, $rootScope, $route, $scope, habitFact
     return habit.instances[date];
   };
 
+  vm.setupPage = function() {
+    $location.path('/setup');
+  };
+
   vm.mainPage = function() {
     $location.path('/habit');
   };
