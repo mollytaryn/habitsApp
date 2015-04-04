@@ -81,6 +81,12 @@ function HabitController($http, $location, $rootScope, $route, $scope, habitFact
     });
   };
 
+  vm.edit = function() {
+    habitFactory.edit(function(res) {
+      console.log('edit');
+    });
+  };
+
   /////////LESS/////////
 
   habitFactory.findLess(function (habits) {

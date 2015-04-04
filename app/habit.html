@@ -16,7 +16,7 @@
           <button class="updateInstances" id="updateInstances" ng-click="habits.createMoreInstances(id)">+</button>
         </td>
         <td class="moreInstances"><div id="{{id}}">{{habit.todaysCount || 0}}</div></td>
-        <td class="habitDescription">{{habit.description}}</td>
+        <td class="habitDescription edit-in-place"><edit-in-place value="habit.description">{{habit.description}}</edit-in-place></form></td>
         <td class="graph">
           <button class="button" ng-click="chartTr = !chartTr"><span class="icon-stats-bars"></button>
         </td>

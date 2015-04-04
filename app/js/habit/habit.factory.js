@@ -85,6 +85,21 @@ function habitFactory($http, $route, FBURL) {
       });
   };
 
+  habits.edit = function (data, cb) {
+    var month = new Date().getMonth() + 1;
+    var day = new Date().getDate();
+    var year = new Date().getFullYear();
+    var date = year + '-' + month + '-' + day;
+
+    $http
+      .put(FBURL + '/users/' + fb.getAuth().uid + '/habits/more/-JlrXgPrkS8rULmqHmGd/description/.json', data)
+      .success(function (res) {
+        if (typeof cb === 'function') {
+          cb(res);
+        }
+      });
+  };
+
   /////////LESS/////////
 
   habits.findLess = function(cb) {
