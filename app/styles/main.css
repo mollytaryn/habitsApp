@@ -191,11 +191,11 @@ td {
   font-weight: 300;
   height: 30px;
   border-bottom: 5px solid #4C5764;
-  padding-left: 10px;
+  /*padding-left: 2px;*/
 }
 
 .updateTD {
-  width: 60px;
+  width: 44px;
 }
 
 .moreInstances {
@@ -233,7 +233,6 @@ td {
 
 .habitDescription {
   width: 200px;
-  padding-left: 20px;
 }
 
 .graph {
