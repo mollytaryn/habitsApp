@@ -31,8 +31,8 @@
           <form>
             <input type="text" id="{{id}}" class="input editInput" placeholder="{{habit.description}}" ng-model="habits.updateMore.description">
             <button class="button updateInstances save" ng-click="habits.editMore(id)"><span class="icon-checkmark"></button>
-            <button class="button updateInstances cancel" ng-click="habits.cancel()"><span class="icon-cross"></button>
-            <button class="button updateInstances delete" ng-click="habits.delete(id)"><span class="icon-bin"></button>
+            <button class="button updateInstances cancel" ng-click="editTr = !editTr"><span class="icon-cross"></button>
+            <button class="button updateInstances delete" ng-click="habits.deleteMore(id)"><span class="icon-bin"></button>
           </form>
         </td>
       </tr>
@@ -87,8 +87,8 @@
           <form>
             <input type="text" id="{{id}}" class="input editInput" placeholder="{{habit.description}}" ng-model="habits.updateLess.description">
             <button class="button updateInstances save" ng-click="habits.editLess(id)"><span class="icon-checkmark"></button>
-            <button class="button updateInstances cancel" ng-click="habits.cancel()"><span class="icon-cross"></button>
-            <button class="button updateInstances delete" ng-click="habits.delete(id)"><span class="icon-bin"></button>
+            <button class="button updateInstances cancel" ng-click="editTr = !editTr"><span class="icon-cross"></button>
+            <button class="button updateInstances delete" ng-click="habits.deleteLess(id)"><span class="icon-bin"></button>
           </form>
         </td>
       </tr>

@@ -88,6 +88,12 @@ function HabitController($http, $location, $rootScope, $route, $scope, habitFact
     });
   };
 
+  vm.deleteMore = function(id) {
+    habitFactory.deleteMore(id, function () {
+      delete vm.data1[id];
+    });
+  };
+
   /////////LESS/////////
 
   habitFactory.findLess(function (habits) {
@@ -149,6 +155,12 @@ function HabitController($http, $location, $rootScope, $route, $scope, habitFact
     habitFactory.editLess(id, vm.updateLess, function(res) {
       console.log('edit');
       $route.reload();
+    });
+  };
+
+  vm.deleteLess = function(id) {
+    habitFactory.deleteLess(id, function () {
+      delete vm.data2[id];
     });
   };
 

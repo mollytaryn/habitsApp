@@ -36,8 +36,7 @@ function habitFactory($http, $route, FBURL) {
     var month = new Date().getMonth() + 1;
     var day = new Date().getDate();
     var year = new Date().getFullYear();
-    var date = year + '-' + month + '-' + day;
-
+    
     habits.getMoreInstances(id, function(count) {
       habits.appendMoreInstances(id, count);
       var data = {};
@@ -73,7 +72,6 @@ function habitFactory($http, $route, FBURL) {
     var month = new Date().getMonth() + 1;
     var day = new Date().getDate();
     var year = new Date().getFullYear();
-    var date = year + '-' + month + '-' + day;
 
     var data = {};
     data[year + '-' + month + '-' + day] = 0;
@@ -85,11 +83,7 @@ function habitFactory($http, $route, FBURL) {
       });
   };
 
-  habits.editMore = function (id, data, cb) {
-    var month = new Date().getMonth() + 1;
-    var day = new Date().getDate();
-    var year = new Date().getFullYear();
-    var date = year + '-' + month + '-' + day;
+  habits.editMore = function(id, data, cb) {
 
     $http
       .put(FBURL + '/users/' + fb.getAuth().uid + '/habits/more/' + id + '.json', data)
@@ -97,6 +91,14 @@ function habitFactory($http, $route, FBURL) {
         if (typeof cb === 'function') {
           cb(res);
         }
+      });
+  };
+
+  habits.deleteMore = function(id, cb) {
+    $http
+      .delete(FBURL + '/users/' + fb.getAuth().uid + '/habits/more/' + id + '.json')
+      .success(function() {
+        cb();
       });
   };
 
@@ -168,7 +170,6 @@ function habitFactory($http, $route, FBURL) {
     var month = new Date().getMonth() + 1;
     var day = new Date().getDate();
     var year = new Date().getFullYear();
-    var date = year + '-' + month + '-' + day;
 
     var data = {};
     data[year + '-' + month + '-' + day] = 0;
@@ -181,17 +182,20 @@ function habitFactory($http, $route, FBURL) {
   };
 
   habits.editLess = function (id, data, cb) {
-    var month = new Date().getMonth() + 1;
-    var day = new Date().getDate();
-    var year = new Date().getFullYear();
-    var date = year + '-' + month + '-' + day;
-
     $http
       .put(FBURL + '/users/' + fb.getAuth().uid + '/habits/less/' + id + '.json', data)
       .success(function (res) {
         if (typeof cb === 'function') {
           cb(res);
         }
+      });
+  };
+
+  habits.deleteLess = function(id, cb) {
+    $http
+      .delete(FBURL + '/users/' + fb.getAuth().uid + '/habits/less/' + id + '.json')
+      .success(function() {
+        cb();
       });
   };
 
