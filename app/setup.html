@@ -1,10 +1,10 @@
 <div class="loginForm">
-  <h1 class="welcomeh1">Setup</h1>
+  <h1 class="setupHeader">Set Up Habits to Track</h1>
   <div class="habitsTable">
-    <h3 class="h3Setup">set up a good habit (or more):</h3>
+    <h3 class="h3 aboveInput">Your Good Habits</h3>
     <div class="setupFullWidth">
-      <form name="habitracker.newMoreForm" ng-submit="habits.addMoreHabit()" class="setupForm">
-        <input type="text" placeholder="ex. exercising" class="setupInput" ng-model="habits.newMore.description">
+      <form name="habitracker.newMoreForm" ng-submit="habits.addMoreHabit()">
+        <input type="text" placeholder="ex. exercising" class="input setupInput" ng-model="habits.newMore.description">
         <input type="submit" class="button submitHabit" value="+" >
       </form>
     </div>
@@ -12,10 +12,10 @@
       <li ng-repeat="(id, habit) in habits.data1" class="setupList">{{habit.description}}</li>
     </ul>
   <div class="habitsTable">
-    <h3 class="h3Setup">set up a bad habit (or more):</h3>
+    <h3 class="h3 aboveInput">Your Bad Habits</h3>
     <div class="setupFullWidth">
-      <form name="habitracker.newLessForm" ng-submit="habits.addLessHabit()" class="setupForm">
-        <input type="text" placeholder="ex. watching tv" class="setupInput" ng-model="habits.newLess.description">
+      <form name="habitracker.newLessForm" ng-submit="habits.addLessHabit()">
+        <input type="text" placeholder="ex. watching tv" class="input setupInput" ng-model="habits.newLess.description">
         <input type="submit" class="button submitHabit" value="+" >
       </form>
     </div>
