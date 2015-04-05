@@ -151,6 +151,17 @@ h1 {
   font-size: 13px;
 }
 
+.editInput {
+  margin: 5px 5px 5px 20px;
+  padding-left: 5px;
+  width: 200px;
+  height: 30px;
+  border: none;
+  border-radius: 5px;
+  font-family: helvetica;
+  font-size: 13px;
+}
+
 .radio {
   margin-left: 10px;
   margin-right: 5px;
@@ -191,11 +202,10 @@ td {
   font-weight: 300;
   height: 30px;
   border-bottom: 5px solid #4C5764;
-  /*padding-left: 2px;*/
 }
 
 .updateTD {
-  width: 44px;
+  width: 40px;
 }
 
 .moreInstances {
@@ -215,9 +225,10 @@ td {
 }
 
 .updateInstances {
-  margin: 5px;
-  width: 40px;
+  margin: 2px;
+  width: 32px;
   height: 32px;
+  padding: 0px;
   font-family: helvetica;
   font-size: 15px;
   color: white;
@@ -225,6 +236,27 @@ td {
   border-radius: 5px;
   border: none;
   background-color: #4C5764;
+}
+
+.save {
+  color: #B9E35D;
+  width: 32px;
+  padding: 0px;
+  margin: 2px;
+}
+
+.cancel {
+  width: 32px;
+  font-size: 12px;
+  padding: 0px;
+  margin: 2px;
+}
+
+.delete {
+  background-color: #C44D58;
+  width: 32px;
+  padding: 0px;
+  margin: 2px;
 }
 
 .updateInstances:hover {
@@ -236,7 +268,7 @@ td {
 }
 
 .graph {
-  width: 60px;
+  width: 40px;
 }
 
 .chartTd {
@@ -348,7 +380,14 @@ ul {
   font-size: 13px;
 }
 
-/*********EDIT IN PLACE********/
+/*********EDIT********/
+
+.editButton {
+  background-color: #8E98A3;
+  font-size: 12px;
+  color: white;
+  border: none;
+}
 
 .edit-in-place span {
     cursor: pointer;

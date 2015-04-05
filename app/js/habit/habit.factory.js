@@ -85,14 +85,14 @@ function habitFactory($http, $route, FBURL) {
       });
   };
 
-  habits.edit = function (data, cb) {
+  habits.editMore = function (id, data, cb) {
     var month = new Date().getMonth() + 1;
     var day = new Date().getDate();
     var year = new Date().getFullYear();
     var date = year + '-' + month + '-' + day;
 
     $http
-      .put(FBURL + '/users/' + fb.getAuth().uid + '/habits/more/-JlrXgPrkS8rULmqHmGd/description/.json', data)
+      .put(FBURL + '/users/' + fb.getAuth().uid + '/habits/more/' + id + '.json', data)
       .success(function (res) {
         if (typeof cb === 'function') {
           cb(res);
@@ -177,6 +177,21 @@ function habitFactory($http, $route, FBURL) {
       .patch(FBURL + '/users/' + fb.getAuth().uid + '/habits/less/' + id + '/instances/.json', data)
       .success(function (res) {
         cb(res);
+      });
+  };
+
+  habits.editLess = function (id, data, cb) {
+    var month = new Date().getMonth() + 1;
+    var day = new Date().getDate();
+    var year = new Date().getFullYear();
+    var date = year + '-' + month + '-' + day;
+
+    $http
+      .put(FBURL + '/users/' + fb.getAuth().uid + '/habits/less/' + id + '.json', data)
+      .success(function (res) {
+        if (typeof cb === 'function') {
+          cb(res);
+        }
       });
   };
 

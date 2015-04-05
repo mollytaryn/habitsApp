@@ -9,8 +9,9 @@ function editInPlace() {
             value: '='
         },
         controller: 'HabitController',
-        template: '<span ng-click="edit()" ng-bind="value"></span><input ng-model="value"></input>',
+        template: '<span ng-click="edit(id)" ng-bind="value"></span><input ng-model="value"></input>',
         link: function ($scope, element, attrs, habitFactory) {
+
             var inputElement = angular.element(element.children()[1]);
             element.addClass('edit-in-place');
             $scope.editing = false;
@@ -19,17 +20,13 @@ function editInPlace() {
               $scope.editing = true;
               element.addClass('active');
               inputElement[0].focus();
-              habitFactory.edit(this.description, function(res) {
-                console.log('edit');
-              });
             };
 
-            inputElement.prop('onblur', function () {
+            inputElement.prop('onblur', function(id) {
               $scope.editing = false;
               element.removeClass('active');
-              // habitFactory.edit(this.description, function(res) {
-              //   console.log('edit');
-              // });
+              debugger;
+              habitFactory.editMore(id);
             });
         }
     };

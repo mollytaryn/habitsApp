@@ -81,9 +81,10 @@ function HabitController($http, $location, $rootScope, $route, $scope, habitFact
     });
   };
 
-  vm.edit = function() {
-    habitFactory.edit(function(res) {
+  vm.editMore = function(id) {
+    habitFactory.editMore(id, vm.updateMore, function(res) {
       console.log('edit');
+      $route.reload();
     });
   };
 
@@ -141,6 +142,13 @@ function HabitController($http, $location, $rootScope, $route, $scope, habitFact
   vm.noLessInstances = function(id) {
     habitFactory.noLessInstances(id, function(res) {
       console.log('missed day');
+    });
+  };
+
+  vm.editLess = function(id) {
+    habitFactory.editLess(id, vm.updateLess, function(res) {
+      console.log('edit');
+      $route.reload();
     });
   };
 
