@@ -1,0 +1,298 @@
+body {
+  margin: 0;
+  padding-top: 0;
+  background-color: #4C5764;
+/*  background-color: #A4B1BF;*/
+}
+
+/*********BUTTONS********/
+
+.button {
+  margin: 5px;
+  width: 80%;
+  height: 32px;
+  font-family: helvetica;
+  font-size: 15px;
+  color: #4C5764;
+  text-align: center;
+  border-radius: 5px;
+  border: none;
+  background-color: #C7F464;
+}
+
+.button:hover {
+  background-color: #B9E35D;
+}
+
+.register {
+  background-color: #E5E5E5;
+}
+
+.register:hover {
+  background-color: #CCC;
+}
+
+.submitHabit {
+  margin: 5px 0;
+  max-width: 40px;
+  color: white;
+  border-radius: 0 5px 5px 0;
+  background-color: #4C5764;
+}
+
+.submitHabit:hover {
+  background-color: #39414A;
+}
+
+.updateInstances {
+  margin: 2px;
+  width: 42%;
+  padding: 0px;
+  color: white;
+  background-color: #4C5764;
+}
+
+.updateInstances:hover {
+  background-color: #39414A;
+}
+
+.save {
+  color: #B9E35D;
+}
+
+.cancel {
+  color: #4ECDC4;
+  font-size: 12px;
+}
+
+.delete {
+  background-color: #C44D58;
+}
+
+.delete:hover {
+  background-color: #B3424C;
+}
+
+.transparentButton {
+  background-color: transparent;
+  font-size: 12px;
+  color: white;
+  border: none;
+}
+
+.transparentButton:hover {
+  color: #C44D58;
+}
+
+.floatRight {
+  float: right;
+}
+
+.grey {
+  margin-top: 10px;
+  color: #4C5764;
+}
+
+/*********HEADER AND FONT STYLINGS********/
+
+h1 {
+  padding-top: 5px;
+  font-family: lato;
+  font-weight: 800;
+  text-align: center;
+  color: #C7F464;
+  margin: 0;
+}
+
+h2 {
+  font-family: lato;
+  font-size: 20px;
+  margin-left: 10px;
+  margin-bottom: -3px;
+  text-align: left;
+  color: #B9E35D;
+}
+
+.setupHeader {
+  font-size: 24px;
+  padding-top: 0px;
+  font-weight: 400;
+}
+
+.h3 {
+  color: #39414A;
+  font-family: lato;
+  font-size: 14px;
+  margin: 14px 10px 0 10px;
+  padding-top: 3px;
+}
+
+.aboveInput {
+  text-align: left;
+  margin-left: 50px;
+  margin-bottom: -6px;
+}
+
+.h3Left {
+  text-align: left;
+}
+
+.ol {
+  font-size: 13px;
+  margin-right: 15px;
+  margin-left: 0px;
+}
+
+.setupList {
+  text-align: left;
+  font-family: lato;
+  font-size: 14px;
+  color: #39414A;
+  margin-left: 40px;
+}
+
+.habi {
+  color: white;
+  font-weight: 300;
+}
+
+/*********FORM INPUTS********/
+
+.input {
+  font-size: 13px;
+  font-family: helvetica;
+  width: 200px;
+  padding-left: 5px;
+  border: none;
+}
+
+.loginInput {
+  margin: 10px 5%;
+  width: 80%;
+  height: 24px;
+  border-bottom: 1px solid #E5E5E5;
+  padding-left: 0px;
+}
+
+.habitInput {
+  margin: 5px -4px 5px 0;
+  height: 30px;
+  border-radius: 5px 0px 0px 5px;
+}
+
+.setupInput {
+  margin: 5px -4px 5px 0;
+  height: 27px;
+  border: 1px solid #4C5764;
+  border-radius: 5px 0px 0px 5px;
+}
+
+.editInput {
+  margin: 5px 5px 5px 0;
+  height: 30px;
+  border-radius: 5px;
+}
+
+/*********HEADER BAR********/
+
+.headerBar {
+  background-color: #556270;
+  height: 55px;
+}
+
+/*********FORM********/
+
+.loginForm {
+  background-color: white;
+  border-radius: 5px;
+  margin: auto;
+  margin-top: 40px;
+  padding: 20px 0;
+  text-align: center;
+  max-width: 340px;
+}
+
+/*********TABLE********/
+
+.centerAlign {
+  text-align: center;
+  margin: auto;
+  width: 100%;
+}
+
+.fullWidth {
+  width: 100%;
+  margin-bottom: 5px;
+  text-align: center;
+  background: #8E98A3;
+}
+
+table {
+  width: 100%;
+  border-spacing: 0px;
+  background: #8E98A3;
+}
+
+td {
+  text-align: left;
+  font-family: lato;
+  font-size: 16px;
+  font-weight: 300;
+  height: 30px;
+  border-bottom: 5px solid #4C5764;
+}
+
+.updateTD {
+  width: 90px;
+  text-align: center;
+}
+
+.graphTD {
+  width: 40px;
+}
+
+.instancesTD {
+  text-align: center;
+  padding: 10px 16px;
+  width: 10px;
+  font-weight: 700;
+  color: white;
+}
+
+.descriptionTD {
+  width: 220px;
+}
+
+.fullLengthTD {
+  padding-left: 10px;
+  width: 100%;
+  font-size: 16px;
+}
+
+.chartData {
+  font-size: 14px;
+  padding: 10px 20px 10px 0;
+  font-weight: 700;
+  color: white;
+}
+
+.chart {
+  width: 100%;
+  height: 240px;
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.chartTr {
+  background-color: #4C5764;
+}
+
+/*********LIST********/
+ul {
+  margin-top: 5px;
+  margin-bottom: 20px;
+}
+
+.spacing {
+  margin-top: 10px;
+}

@@ -1,0 +1,110 @@
+<div class="centerAlign">
+  <h2>your good habits</h2>
+  <div class="fullWidth">
+    <form name="habitracker.newMoreForm" ng-submit="habits.addMoreHabit()">
+      <input type="text" placeholder="ex. exercising" class="input habitInput" ng-model="habits.newMore.description">
+      <input type="submit" class="button submitHabit" value="+" >
+    </form>
+  </div>
+  <table class="table">
+    <tbody ng-repeat="(id, habit) in habits.data1">
+      <tr class="tableRow">
+        <td class="updateTD">
+          <button class="button updateInstances" ng-click="habits.noMoreInstances(id)">0</span></button>
+          <button class="button updateInstances" ng-click="habits.createMoreInstances(id)">+</button>
+        </td>
+        <td class="instancesTD"><div id="{{id}}">{{habit.todaysCount || 0}}</div></td>
+        <td class="descriptionTD">
+          {{habit.description}}
+          <button class="transparentButton" ng-click="editTr = !editTr"><span class="icon-pencil"></button>
+        </td>
+        <!-- <td class="habitDescription"><edit-in-place value="habit.description">{{habit.description}}</edit-in-place></td> -->
+        <td class="graphTD">
+          <button class="button" ng-click="chartTr = !chartTr"><span class="icon-stats-bars"></button>
+        </td>
+      </tr>
+
+      <tr ng-show="editTr">
+        <td class="editTd fullWidth" colspan="4">
+          <form>
+            <input type="text" id="{{id}}" class="input editInput" placeholder="{{habit.description}}" ng-model="habits.updateMore.description">
+            <button class="button updateInstances save" ng-click="habits.editMore(id)"><span class="icon-checkmark"></button>
+            <button class="button updateInstances cancel" ng-click="editTr = !editTr"><span class="icon-cross"></button>
+            <button class="button updateInstances delete" ng-click="habits.deleteMore(id)"><span class="icon-bin"></button>
+          </form>
+        </td>
+      </tr>
+
+      <tr ng-show="chartTr">
+        <td class="fullLengthTD" colspan="4">
+          days: <span class="chartData">{{habit.daysTracked.length}}</span>
+          total: <span class="chartData">{{habit.total || 0}}</span>
+          average: <span class="chartData">{{habit.average || 0}} instances/day</span>
+        </td>
+      </tr>
+
+      <tr class="chartTr" ng-show="chartTr">
+        <td class="fullLengthTD" colspan="4">
+          <div ac-chart="'bar'" ac-data="habit.moreChartData" ac-config="config" id='chart' class='chart'></div>
+        </td>
+      </tr>
+
+    </tbody>
+  </table>
+</div>
+
+<div class="centerAlign">
+  <h2>your bad habits</h2>
+  <div class="fullWidth">
+    <form name="habitracker.newLessForm" ng-submit="habits.addLessHabit()">
+      <input type="text" placeholder="ex. watching tv" class="input habitInput" ng-model="habits.newLess.description">
+      <input type="submit" class="button submitHabit" value="+" >
+    </form>
+  </div>
+  <table class="table">
+    <tbody ng-repeat="(id, habit) in habits.data2">
+      <tr class="tableRow">
+        <td class="updateTD">
+          <button class="button updateInstances" ng-click="habits.noLessInstances(id)">0</span></button>
+          <button class="button updateInstances" ng-click="habits.createLessInstances(id)">+</button>
+        </td>
+        <td class="instancesTD"><div id="{{id}}">{{habit.todaysCount || 0}}</div></td>
+        <td class="descriptionTD">
+          {{habit.description}}
+          <button class="transparentButton" ng-click="editTr = !editTr"><span class="icon-pencil"></button>
+        </td>
+        <td class="graphTD">
+          <button class="button" ng-click="lessChartTr = !lessChartTr"><span class="icon-stats-bars"></button>
+        </td>
+      </tr>
+
+      <tr ng-show="editTr">
+        <td class="editTd fullWidth" colspan="4">
+          <form>
+            <input type="text" id="{{id}}" class="input editInput" placeholder="{{habit.description}}" ng-model="habits.updateLess.description">
+            <button class="button updateInstances save" ng-click="habits.editLess(id)"><span class="icon-checkmark"></button>
+            <button class="button updateInstances cancel" ng-click="editTr = !editTr"><span class="icon-cross"></button>
+            <button class="button updateInstances delete" ng-click="habits.deleteLess(id)"><span class="icon-bin"></button>
+          </form>
+        </td>
+      </tr>
+
+      <tr ng-show="lessChartTr">
+        <td class="fullLengthTD" colspan="4">
+          days: <span class="chartData">{{habit.daysTracked.length}}</span>
+          total: <span class="chartData">{{habit.total || 0}}</span>
+          average: <span class="chartData">{{habit.average || 0}} instances/day</span>
+        </td>
+      </tr>
+
+      <tr class="chartTr" ng-show="lessChartTr">
+        <td class="fullLengthTD" colspan="4">
+          <div ac-chart="'bar'" ac-data="habit.lessChartData" ac-config="config" id='chart' class='chart'></div>
+        </td>
+      </tr>
+
+    </tbody>
+  </table>
+</div>
+<br>
+<button class="transparentButton floatRight" ng-click="habits.logout()">log out</button>
