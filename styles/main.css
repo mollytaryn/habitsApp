@@ -46,7 +46,15 @@ body {
 
 .updateInstances {
   margin: 2px;
-  width: 42%;
+  width: 40%;
+  padding: 0px;
+  color: white;
+  background-color: #4C5764;
+}
+
+.editInstances {
+  margin: 2px;
+  width: 40px;
   padding: 0px;
   color: white;
   background-color: #4C5764;

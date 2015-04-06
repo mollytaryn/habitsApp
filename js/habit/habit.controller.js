@@ -17,6 +17,7 @@ function HabitController($http, $location, $rootScope, $route, $scope, habitFact
 
   vm.setupPage = function() {
     $location.path('/setup');
+    console.log('click');
   };
 
   vm.mainPage = function() {

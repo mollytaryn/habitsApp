@@ -9,7 +9,14 @@ function authConfig($routeProvider) {
     .when('/login', {
       templateUrl: 'login.html',
       controller: 'AuthController',
-      controllerAs: 'auth'
+      controllerAs: 'auth',
+      resolve: {
+        data: function ($location, authFactory) {
+          if (authFactory.isLoggedIn()) {
+            $location.path('/habit')
+          }
+        }
+      }
     });
 }
 
