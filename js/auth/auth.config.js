@@ -16,6 +16,9 @@ function authConfig($routeProvider) {
           }
         }
       }
+    })
+    .otherwise({
+      redirectTo: '/login'
     });
 }
 

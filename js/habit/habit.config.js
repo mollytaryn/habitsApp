@@ -18,5 +18,8 @@ function habitConfig($routeProvider) {
       templateUrl: 'setup.html',
       controller: 'HabitController',
       controllerAs: 'habits'
+    })
+    .otherwise({
+      redirectTo: '/login'
     });
 }
