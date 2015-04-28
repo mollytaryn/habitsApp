@@ -5,59 +5,58 @@ angular
 function habitFactory($http, $route, FBURL) {
   var habits = {};
   var fb = new Firebase(FBURL);
+  habitURL = FBURL + '/users/' + fb.getAuth().uid + '/habits/'
 
-  /////////MORE/////////
+  /////////GOOD HABITS/////////
 
-  habits.findMore = function(cb) {
+  habits.findGoodHabit = function(cb) {
     $http
-      .get(FBURL + '/users/' + fb.getAuth().uid + '/habits/more.json')
+      .get(habitURL + 'goodhabit.json')
       .success(function(data) {
         cb(data);
       });
   };
 
-  habits.createMore = function(data, cb) {
+  habits.createGoodHabit = function(data, cb) {
     $http
-      .post(FBURL + '/users/' + fb.getAuth().uid + '/habits/more/.json', data)
+      .post(habitURL + 'goodhabit.json', data)
       .success(function (res) {
         cb(res);
         console.log('sent');
       });
   };
 
-  habits.appendMoreInstances = function(id, data) {
+  habits.appendGoodHabitInstances = function(id, data) {
     if (data) {
       $('#' + id).empty();
       $('#' + id).append('<div>' + data + '</div>');
     }
   };
 
-  habits.createMoreInstances = function (id, cb) {
+  habits.createGoodHabitInstances = function (id, cb) {
     var month = new Date().getMonth() + 1;
     var day = new Date().getDate();
-    var year = new Date().getFullYear();
-    
-    habits.getMoreInstances(id, function(count) {
-      habits.appendMoreInstances(id, count);
+
+    habits.getGoodHabitInstances(id, function(count) {
+      habits.appendGoodHabitInstances(id, count);
       var data = {};
-      data[year + '-' + month + '-' + day] = count;
+      data[month + '-' + day] = count;
 
       $http
-        .patch(FBURL + '/users/' + fb.getAuth().uid + '/habits/more/' + id + '/instances/.json', data)
+        .patch(habitURL + 'goodhabit/' + id + '/instances/.json', data)
         .success(function (res) {
           cb(res);
       });
     });
   };
 
-  habits.getMoreInstances = function(id, cb) {
+  habits.getGoodHabitInstances = function(id, cb) {
     var month = new Date().getMonth() + 1;
     var day = new Date().getDate();
-    var year = new Date().getFullYear();
-    var dateUrl = year + '-' + month + '-' + day;
+    var dateUrl = month + '-' + day;
 
     $http
-      .get(FBURL + '/users/' + fb.getAuth().uid + '/habits/more/' + id + '/instances/' + dateUrl + '.json')
+      .get(habitURL + 'goodhabit/' + id + '/instances/' + dateUrl + '.json')
       .success(function(count) {
         if (count) {
           count++;
@@ -68,25 +67,25 @@ function habitFactory($http, $route, FBURL) {
       });
   };
 
-  habits.noMoreInstances = function (id, cb) {
+  habits.noGoodHabitInstances = function (id, cb) {
     var month = new Date().getMonth() + 1;
     var day = new Date().getDate();
     var year = new Date().getFullYear();
 
     var data = {};
-    data[year + '-' + month + '-' + day] = 0;
+    data[month + '-' + day] = 0;
 
     $http
-      .patch(FBURL + '/users/' + fb.getAuth().uid + '/habits/more/' + id + '/instances/.json', data)
+      .patch(habitURL + 'goodhabit/' + id + '/instances/.json', data)
       .success(function (res) {
         cb(res);
       });
   };
 
-  habits.editMore = function(id, data, cb) {
+  habits.editGoodHabit = function(id, data, cb) {
 
     $http
-      .put(FBURL + '/users/' + fb.getAuth().uid + '/habits/more/' + id + '.json', data)
+      .put(habitURL + 'goodhabit/' + id + '.json', data)
       .success(function (res) {
         if (typeof cb === 'function') {
           cb(res);
@@ -94,68 +93,66 @@ function habitFactory($http, $route, FBURL) {
       });
   };
 
-  habits.deleteMore = function(id, cb) {
+  habits.deleteGoodHabit = function(id, cb) {
     $http
-      .delete(FBURL + '/users/' + fb.getAuth().uid + '/habits/more/' + id + '.json')
+      .delete(habitURL + 'goodhabit/' + id + '.json')
       .success(function() {
         cb();
       });
   };
 
-  /////////LESS/////////
+  /////////BAD HABITS/////////
 
-  habits.findLess = function(cb) {
+  habits.findBadHabit = function(cb) {
     $http
-      .get(FBURL + '/users/' + fb.getAuth().uid + '/habits/less.json')
+      .get(habitURL + 'badhabit.json')
       .success(function(data) {
         cb(data);
       });
   };
 
-  habits.createLess = function(data, cb) {
+  habits.createBadHabit = function(data, cb) {
 
     $http
-      .post(FBURL + '/users/' + fb.getAuth().uid + '/habits/less/.json', data)
+      .post(habitURL + 'badhabit.json', data)
       .success(function (res) {
         cb(res);
         console.log('sent');
       });
   };
 
-  habits.appendLessInstances = function(id, data) {
+  habits.appendBadHabitInstances = function(id, data) {
     if (data) {
       $('#' + id).empty();
       $('#' + id).append('<div>' + data + '</div>');
     }
   };
 
-  habits.createLessInstances = function (id, cb) {
+  habits.createBadHabitInstances = function (id, cb) {
     var month = new Date().getMonth() + 1;
     var day = new Date().getDate();
-    var year = new Date().getFullYear();
-    var dateUrl = year + '-' + month + '-' + day;
+    var dateUrl = month + '-' + day;
 
-    habits.getLessInstances(id, function(count) {
-      habits.appendLessInstances(id, count);
+    habits.getBadHabitInstances(id, function(count) {
+      habits.appendBadHabitInstances(id, count);
       var data = {};
-      data[year + '-' + month + '-' + day] = count;
+      data[month + '-' + day] = count;
 
       $http
-        .patch(FBURL + '/users/' + fb.getAuth().uid + '/habits/less/' + id + '/instances/.json', data)
+        .patch(habitURL + 'badhabit/' + id + '/instances/.json', data)
         .success(function (res) {
           cb(res);
       });
     });
   };
 
-  habits.getLessInstances = function(id, cb) {
+  habits.getBadHabitInstances = function(id, cb) {
     var month = new Date().getMonth() + 1;
     var day = new Date().getDate();
-    var year = new Date().getFullYear();
-    var dateUrl = year + '-' + month + '-' + day;
+    var dateUrl = month + '-' + day;
 
     $http
-      .get(FBURL + '/users/' + fb.getAuth().uid + '/habits/less/' + id + '/instances/' + dateUrl + '.json')
+      .get(habitURL + 'badhabit/' + id + '/instances/' + dateUrl + '.json')
       .success(function(count) {
         if (count) {
           count++;
@@ -166,24 +163,22 @@ function habitFactory($http, $route, FBURL) {
       });
   };
 
-  habits.noLessInstances = function (id, cb) {
+  habits.noBadHabitInstances = function (id, cb) {
     var month = new Date().getMonth() + 1;
     var day = new Date().getDate();
-    var year = new Date().getFullYear();
-
     var data = {};
-    data[year + '-' + month + '-' + day] = 0;
+    data[month + '-' + day] = 0;
 
     $http
-      .patch(FBURL + '/users/' + fb.getAuth().uid + '/habits/less/' + id + '/instances/.json', data)
+      .patch(habitURL + 'badhabit/' + id + '/instances/.json', data)
       .success(function (res) {
         cb(res);
       });
   };
 
-  habits.editLess = function (id, data, cb) {
+  habits.editBadHabit = function (id, data, cb) {
     $http
-      .put(FBURL + '/users/' + fb.getAuth().uid + '/habits/less/' + id + '.json', data)
+      .put(habitURL + 'badhabit/' + id + '.json', data)
       .success(function (res) {
         if (typeof cb === 'function') {
           cb(res);
@@ -191,9 +186,9 @@ function habitFactory($http, $route, FBURL) {
       });
   };
 
-  habits.deleteLess = function(id, cb) {
+  habits.deleteBadHabit = function(id, cb) {
     $http
-      .delete(FBURL + '/users/' + fb.getAuth().uid + '/habits/less/' + id + '.json')
+      .delete(habitURL + 'badhabit/' + id + '.json')
       .success(function() {
         cb();
       });

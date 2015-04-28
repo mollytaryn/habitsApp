@@ -64,6 +64,10 @@ body {
   background-color: #39414A;
 }
 
+.editInstances:hover {
+  background-color: #39414A;
+}
+
 .save {
   color: #B9E35D;
 }

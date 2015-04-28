@@ -1,6 +1,6 @@
 {
   "firebase": "habitracker",
-  "public": "index.html",
+  "public": ".",
   "ignore": [
     "firebase.json",
     "**/.*",

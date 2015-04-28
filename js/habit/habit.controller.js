@@ -9,24 +9,22 @@ function HabitController($http, $location, $rootScope, $route, $scope, habitFact
   function todaysCount(habit) {
     var month = new Date().getMonth() + 1;
     var day = new Date().getDate();
-    var year = new Date().getFullYear();
-    var date = year + '-' + month + '-' + day;
+    var date = month + '-' + day;
 
     return habit.instances[date];
   };
 
   vm.setupPage = function() {
     $location.path('/setup');
-    console.log('click');
   };
 
   vm.mainPage = function() {
     $location.path('/habit');
   };
 
-  /////////MORE/////////
+  /////////GOOD HABITS/////////
 
-  habitFactory.findMore(function (habits) {
+  habitFactory.findGoodHabit(function (habits) {
     vm.data1 = habits;
 
     vm.config = {
@@ -47,53 +45,53 @@ function HabitController($http, $location, $rootScope, $route, $scope, habitFact
         vm.data1[id].total += this;
       });
 
-      vm.data1[id].average = vm.data1[id].total / vm.data1[id].daysTracked.length;
+      vm.data1[id].average = Math.round(vm.data1[id].total / vm.data1[id].daysTracked.length * 100)/100;
 
       vm.data1[id].todaysCount = todaysCount(habits[id]);
 
-      vm.data1[id].moreChartData = {
+      vm.data1[id].goodHabitChartData = {
         data: []
       };
 
       var ins = $.map(habits[id].instances, function(value, index) {
-        vm.data1[id].moreChartData.data.push({x: [index], y: [value]})
+        vm.data1[id].goodHabitChartData.data.push({x: [index], y: [value]})
       });
     });
   });
 
-  vm.addMoreHabit = function() {
-    habitFactory.createMore(vm.newMore, function(res) {
+  vm.addGoodHabit = function() {
+    habitFactory.createGoodHabit(vm.newGoodHabit, function(res) {
       $route.reload();
     });
   };
 
-  vm.createMoreInstances = function(id) {
-    habitFactory.createMoreInstances(id, function(res) {
+  vm.createGoodHabitInstances = function(id) {
+    habitFactory.createGoodHabitInstances(id, function(res) {
       $route.reload();
 
     });
   };
 
-  vm.noMoreInstances = function(id) {
-    habitFactory.noMoreInstances(id, function(res) {
+  vm.noGoodHabitInstances = function(id) {
+    habitFactory.noGoodHabitInstances(id, function(res) {
     });
   };
 
-  vm.editMore = function(id) {
-    habitFactory.editMore(id, vm.updateMore, function(res) {
+  vm.editGoodHabit = function(id) {
+    habitFactory.editGoodHabit(id, vm.updateGoodHabit, function(res) {
       $route.reload();
     });
   };
 
-  vm.deleteMore = function(id) {
-    habitFactory.deleteMore(id, function () {
+  vm.deleteGoodHabit = function(id) {
+    habitFactory.deleteGoodHabit(id, function () {
       delete vm.data1[id];
     });
   };
 
-  /////////LESS/////////
+  /////////BAD HABITS/////////
 
-  habitFactory.findLess(function (habits) {
+  habitFactory.findBadHabit(function (habits) {
     vm.data2 = habits;
 
     vm.config = {
@@ -114,48 +112,48 @@ function HabitController($http, $location, $rootScope, $route, $scope, habitFact
         vm.data2[id].total += this;
       });
 
-      vm.data2[id].average = vm.data2[id].total / vm.data2[id].daysTracked.length;
+      vm.data2[id].average = Math.round(vm.data2[id].total / vm.data2[id].daysTracked.length * 100)/100;
 
       vm.data2[id].todaysCount = todaysCount(habits[id]);
 
-      vm.data2[id].lessChartData = {
+      vm.data2[id].badHabitChartData = {
         data: []
       };
 
       var ins = $.map(habits[id].instances, function(value, index) {
-        vm.data2[id].lessChartData.data.push({x: [index], y: [value]})
+        vm.data2[id].badHabitChartData.data.push({x: [index], y: [value]})
       });
 
     });
 
   });
 
-  vm.addLessHabit = function() {
-    habitFactory.createLess(vm.newLess, function(res) {
+  vm.addBadHabit = function() {
+    habitFactory.createBadHabit(vm.newBadHabit, function(res) {
       $route.reload();
     });
   };
 
-  vm.createLessInstances = function(id) {
-    habitFactory.createLessInstances(id, function(res) {
+  vm.createBadHabitInstances = function(id) {
+    habitFactory.createBadHabitInstances(id, function(res) {
       $route.reload();
     });
   };
 
-  vm.noLessInstances = function(id) {
-    habitFactory.noLessInstances(id, function(res) {
+  vm.noBadHabitInstances = function(id) {
+    habitFactory.noBadHabitInstances(id, function(res) {
       console.log('missed day');
     });
   };
 
-  vm.editLess = function(id) {
-    habitFactory.editLess(id, vm.updateLess, function(res) {
+  vm.editBadHabit = function(id) {
+    habitFactory.editBadHabit(id, vm.updateBadHabit, function(res) {
       $route.reload();
     });
   };
 
-  vm.deleteLess = function(id) {
-    habitFactory.deleteLess(id, function () {
+  vm.deleteBadHabit = function(id) {
+    habitFactory.deleteBadHabit(id, function () {
       delete vm.data2[id];
     });
   };

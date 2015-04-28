@@ -2,16 +2,17 @@
 <html lang="en-US">
   <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta https-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>habiTrackr</title>
-    <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css'>
+    <link rel="icon" type="image/ico" href="/favicon.ico">
     <link rel="stylesheet" href="styles/icomoon/style.css">
     <link rel="stylesheet" href="styles/main.css">
   </head>
   <body>
     <!--[if lt IE 9]>
-      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+      <script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
 
     <div class="container" ng-app="habitracker">
@@ -22,7 +23,6 @@
       <div ng-show="user"></div>
       <div ng-view></div>
     </div>
-
     <script src="bower_components/firebase/firebase.js"></script>
     <script src="bower_components/angular/angular.min.js"></script>
     <script src="bower_components/angular-route/angular-route.min.js"></script>
@@ -38,6 +38,5 @@
     <script src="js/habit/habit.factory.js"></script>
     <script src="js/auth/auth.controller.js"></script>
     <script src="js/habit/habit.controller.js"></script>
-
   </body>
 </html>

@@ -1,8 +1,7 @@
 angular
   .module('habitracker')
   .config(authConfig)
-  .run(privateRoutes)
-  .constant('FBURL', 'https://habitracker.firebaseio.com');
+  .run(privateRoutes);
 
 function authConfig($routeProvider) {
   $routeProvider
